@@ -1,6 +1,5 @@
 NAME = push_swap.out
-SRC = libft.c push_swap.c
-OBJ = libft.o push_swap.o
+SRC = libft.c push_swap.c atoi_error.c
 CC = gcc
 FLUG = -Wall -Werror -Wextra
 

@@ -17,9 +17,8 @@ int	arg_error(int argc, char **argv)
 	while(argv[i])
 	{
 		j = 0;
-		while(argv[i][j])
-			if(argv[i][j] > '9' || argv[i][j++] < '0')
-				return(put_error());
+		if(ft_atoi_errorcheck(argv[i]) == ERROR)
+			return(put_error());
 		i++;
 	}
 	return(NOERROR);
@@ -31,3 +30,5 @@ int	main(int argc, char **argv)
 		return(ERROR);
 	return(0);
 }
+//ARG = <変数>; ./push_swap $ARG | ./checker_MAC
+//ARG = `jot -r -s " " 100 INT_MIN INT_MAX` //INT_MINからINT_MAXまでの乱数を100個、ARGに代入する
