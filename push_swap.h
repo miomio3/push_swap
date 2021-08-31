@@ -24,7 +24,13 @@ int		put_error(void);
 void	ft_putstr(char *s);
 size_t	ft_strlen(char *s);
 int		ft_atoi_errorcheck(const char *str);
-t_list	*make_list(int argc, char argv[3][4]);
+t_list	*make_list(int argc, char **argv);
 int		ft_atoi(const char *str);
+t_list	*search_lowest_in3(t_list *list);
+void	sort_three(t_list *list, int argc);
+void	swap(t_list *a, t_list *b);
+void	op_rra(t_list *list, int argc);
+void	swap_top2(t_list *zero, int order);
+void	swap_data(t_list *a, t_list *b);
 
 #endif
