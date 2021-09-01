@@ -68,9 +68,14 @@ int main(void)
 	t_list	*list;
 	int		argc;
 
-	argc = 7;
-	char *data[7] = {"", "345", "234", "890", "789", "567", "678"};
+	argc = 11;
+	char *data[11] = {"", "0", "234", "-1", "789", "567", "678", "888", "111", "-2147483648", "2147483647"};
 	list = make_list(argc, data);
 	quick(list, argc);
+	while(--argc)
+	{
+		printf("%d\n", list->num);
+		list = list->next;
+	}
 	return(0);
 }
