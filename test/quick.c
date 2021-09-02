@@ -56,13 +56,9 @@ void	quick(t_list *list, int argc)
 			push_stack(&bottom_stack, &top_stack, pbottom, top, p++);
 		if(ptop > bottom)
 			push_stack(&bottom_stack, &top_stack, bottom, ptop, p++);
-		/* {
-			bottom_stack[1] = bottom;
-			top_stack[1] = ptop;
-		} */
 	}
 }
-
+/* 
 int main(void)
 {
 	t_list	*list;
@@ -78,4 +74,4 @@ int main(void)
 		list = list->next;
 	}
 	return(0);
-}
+} */

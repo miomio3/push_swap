@@ -37,5 +37,11 @@ t_list	*search_list(t_list *list, int order);
 void	push_stack(int **bottom_stack, int **top_stack,  int bottom, int top, int p);
 int		malloc_error(int **bottom_stack, int **top_stack);
 int		search_center(t_list *list, int pbottom, int ptop);
+void	bouble(int	a[], int argc);
+t_list	*search_listnum(t_list *list, int num);
+int		insertion(t_list *list, int argc);
+void	rra(t_list *list, int argc);
+void	ra(t_list *list, int argc);
+void	pb(t_list *list, int argc);
 
 #endif

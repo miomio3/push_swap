@@ -46,6 +46,16 @@ t_list	*search_list(t_list *list, int order)
 		p = p->next;
 	return(p);
 }
+
+t_list	*search_listnum(t_list *list, int num)
+{
+	t_list	*p;
+
+	p = list;
+	while(p->num != num)
+		p = p->next;
+	return(p);
+}
 /* 
 int main(void)
 {
