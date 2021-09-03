@@ -18,15 +18,31 @@ int	*make_int(t_list *list, int argc)
 	return(array);
 }
 
-void	push2b(t_list *list, int argc)
+void	push2b(t_list *list, int pushnum, int Alast)
 {
-	if(list->order > (argc - 1) / 2)
-		while(list->order != argc - 2)
-			rra(list, argc);
+	t_list	*p;
+
+	p = search_listnum(list, pushnum, A);
+	if(p->order < Alast / 2)
+	{
+		while(p->order != Alast)
+		{
+			if(p->order == 0)
+				p = search_list(list, search_Alast(list));
+			else
+				p = p->prev;
+			rra(list);
+		}
+	}
 	else
-		while(list->order != argc - 2)
-			ra(list, argc);
-	pb(list, argc);
+	{
+		while(p->order != Alast)
+		{
+			p = p->next;
+			ra(list);
+		}
+	}
+	pb(list);
 }
 
 int	insertion(t_list *list, int argc)
@@ -37,19 +53,27 @@ int	insertion(t_list *list, int argc)
 	array = make_int(list, argc);
 	bouble(array, argc);
 	i = 0;
-	while(i < argc)
+	while(i < argc - 2)
 	{
-		push2b(search_listnum(list, array[ argc - 2 - i]), argc);
+		push2b(list, array[ argc - 2 - i], search_Alast(list));
+		i++;
+	}
+	i = 0;
+	while(i < argc - 2)
+	{
+		pa(list);
 		i++;
 	}
 	return(0);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	char *argv[4] = {"", "123", "111", "1234"};
 	t_list	*list;
+	int		i;
 
-	list = make_list(4, argv);
-	insertion(list, 4);
+	//char *argv[6] = {"","111","121","111","-1111","13467"};
+	list = make_list(argc, argv);
+	i = 0;
+	insertion(list, argc);
 }

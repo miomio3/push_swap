@@ -1,59 +1,65 @@
 #include "push_swap.h"
 
-void	ra(t_list *list, int argc)
+void	ra(t_list *list)
 {
 	t_list	*p;
 	int		i;
-	int		first;
+	int		lastnum;
+	int		Alast;
 
-	p = search_list(list, 0);
-	argc = search_other(list, B);
-	while(p->a_b != A)
-		p = p->next;
-	i = p->order;
-	first = p->order;
-	while(i < argc - 1)
+	Alast = search_Alast(list);
+	p = search_list(list, Alast);
+	i = Alast;
+	lastnum = p->num;
+	while(i >= 0)
 	{
-		if(i == first)
-			p->order = argc - 2;
+		if(i == 0)
+			p->num = lastnum;
 		else
-			p->order = i - 1;
-		p = p->next;
-		i++;
+			p->num = p->prev->num;
+		p = p->prev;
+		i--;
 	}
 	ft_putstr("ra\n");
 }
 
-void	rra(t_list *list, int argc)
+void	rra(t_list *list)
 {
 	t_list	*p;
 	int		i;
-	int		first;
+	int		firstnum;
+	int		Alast;
 
+	Alast = search_Alast(list);
 	p = search_list(list, 0);
-	while(p->a_b != A)
-		p = p->next;
-	i = p->order;
-	first = p->order;
-	while(i < argc - 1)
+	firstnum = p->num;
+	i = 0;
+	while(i <= Alast)
 	{
-		if(i == argc - 2)
-			p->order = first;
+		if(i == Alast)
+			p->num = firstnum;
 		else
-			p->order = i + 1;
+			p->num = p->next->num;
 		p = p->next;
 		i++;
 	}
 	ft_putstr("rra\n");
 }
 
-void	pb(t_list *list, int argc)
+void	pb(t_list *list)
 {
 	t_list	*p;
 
-	p = search_list(list, argc - 2);
-	while(p->a_b != A)
-		p = p->prev;
+	p = search_list(list, search_Alast(list));
 	p->a_b = B;
 	ft_putstr("pb\n");
+}
+
+void	pa(t_list *list)
+{
+	t_list	*p;
+
+	p = search_list(list, search_Blast(list));
+	p->a_b = A;
+	ft_putstr("pa\n");
 }
