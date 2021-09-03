@@ -70,10 +70,8 @@ int	insertion(t_list *list, int argc)
 int	main(int argc, char **argv)
 {
 	t_list	*list;
-	int		i;
 
 	//char *argv[6] = {"","111","121","111","-1111","13467"};
 	list = make_list(argc, argv);
-	i = 0;
 	insertion(list, argc);
 }
