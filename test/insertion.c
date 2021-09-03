@@ -55,7 +55,7 @@ int	insertion(t_list *list, int argc)
 	i = 0;
 	while(i < argc - 2)
 	{
-		push2b(list, array[ argc - 2 - i], search_Alast(list));
+		push2b(list, array[i], search_Alast(list));
 		i++;
 	}
 	i = 0;
@@ -67,11 +67,13 @@ int	insertion(t_list *list, int argc)
 	return(0);
 }
 
-int	main(int argc, char **argv)
+int	main()//int argc, char **argv)
 {
 	t_list	*list;
+	int i;
 
-	//char *argv[6] = {"","111","121","111","-1111","13467"};
-	list = make_list(argc, argv);
-	insertion(list, argc);
+	char *argv[6] = {"", "1353271128", "-1941500750","-1627890091"};
+	list = make_list(4, argv);
+	insertion(list, 4);
+	return(0);
 }

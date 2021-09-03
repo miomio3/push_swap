@@ -25,7 +25,7 @@ t_list	*make_list(int argc, char **argv)
 	list = malloc(sizeof(t_list) * 1);
 	while(i < argc - 1)
 	{
-		set_data(list, argv[i + 1], i);
+		set_data(list, argv[argc - 1 - i], i);
 		list->next = malloc(sizeof(t_list) * 1);
 		list->last = 0;
 		list->a_b = 0;
@@ -62,10 +62,10 @@ t_list	*search_listnum(t_list *list, int num, int ab)
 		p = p->prev;
 	return(p);
 }
-/* 
+/*
 int main(void)
 {
-	char argv[4][4] = {"", "123", "111", "1234"};
+	char argv[4][4] = {"1353271128", "-1941500750","-1627890091"};
 	
 	make_list(4, argv);
 	return(0);

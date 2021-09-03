@@ -40,6 +40,6 @@ int	main(int argc, char **argv)
 	printf("num = %d\n", list->next->next->num);//debug */
 	return(0);
 }
-//ARG = <変数>; ./push_swap $ARG | ./checker_MAC
+//bash → ARG = <変数>; ./push_swap $ARG | ./checker_MAC　$ARG
 //ARG = <変数>; ./push_swap $ARG | wc -l
 //ARG = `jot -r -s " " 100 INT_MIN INT_MAX` //INT_MINからINT_MAXまでの乱数を100個、ARGに代入する
