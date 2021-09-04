@@ -60,6 +60,8 @@ t_list	*search_listnum(t_list *list, int num, int ab)
 		p = search_Blast(list);
 	while(p->num != num && p->a_b == ab)
 		p = p->prev;
+	if(p->a_b != ab)
+		return(NULL);
 	return(p);
 }
 /*

@@ -6,11 +6,15 @@
 #include <unistd.h>
 #include <limits.h>
 
-#define ERROR	-1
-#define NOERROR	1
-#define A		0
-#define B		1
-#define PUSH2B	argc/2
+#define ERROR			-1
+#define NOERROR			1
+#define A				0
+#define B				1
+#define PUSH2B			argc/2
+#define NOINSTRUCTION	0
+#define RA				1
+#define RRA				2
+#define SA				3
 
 typedef	struct t_list
 {
@@ -42,6 +46,7 @@ t_list	*search_pushnum_fromlast(t_list *list, int *array, int argc, int a_b);
 t_list	*search_listnum(t_list *list, int num, int ab);
 t_list	*search_list(t_list *list, int order);
 void	swap_data(t_list *a, t_list *b);
+void	sort2(t_list *list, int *array);
 int		is_sorted(t_list *list);
 int		is_B(t_list *list);
 
