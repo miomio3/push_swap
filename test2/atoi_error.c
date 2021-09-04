@@ -25,7 +25,7 @@ int	ft_atoi_errorcheck(const char *str)
 			sign = -1;
 	}
 	nb = 0;
-	if(str[i] < '0' && str[i] > '9')
+	if(str[i] < '0' || str[i] > '9')
 		return(ERROR);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
