@@ -48,5 +48,7 @@ void	pb(t_list *list);
 int		search_Alast(t_list	*list);
 int		search_Blast(t_list	*list);
 void	pa(t_list *list);
+int		is_sorted(t_list *list);
+int		is_B(t_list *list);
 
 #endif

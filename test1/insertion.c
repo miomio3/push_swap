@@ -42,7 +42,8 @@ void	push2b(t_list *list, int pushnum, int Alast)
 			ra(list);
 		}
 	}
-	pb(list);
+	if(is_sorted(list) == -1)
+		pb(list);
 }
 
 int	insertion(t_list *list, int argc)
@@ -53,27 +54,23 @@ int	insertion(t_list *list, int argc)
 	array = make_int(list, argc);
 	bouble(array, argc);
 	i = 0;
-	while(i < argc - 2)
+	while(is_sorted(list) == -1)
 	{
 		push2b(list, array[i], search_Alast(list));
 		i++;
 	}
-	i = 0;
-	while(i < argc - 2)
-	{
+	while(is_B(list) == 1)
 		pa(list);
-		i++;
-	}
 	return(0);
 }
 
-int	main()//int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*list;
 	int i;
 
-	char *argv[6] = {"", "1353271128", "-1941500750","-1627890091"};
-	list = make_list(4, argv);
-	insertion(list, 4);
+	//char *argv[6] = {"", "1353271128", "-1941500750","-1627890091"};
+	list = make_list(argc, argv);
+	insertion(list, argc);
 	return(0);
 }
