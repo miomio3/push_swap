@@ -75,7 +75,7 @@ void	insertion(t_list *list, int argc)
 	bouble(array, argc);
 	i = 0;
 	push2b(list, array, argc);
-	sort2(list, array);
+	//sort2(list, array);
 	while(is_B(list) == 1)
 		pa(list);
 }
