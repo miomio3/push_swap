@@ -29,6 +29,7 @@ t_list	*make_list(int argc, char **argv)
 		list->next = malloc(sizeof(t_list) * 1);
 		list->last = 0;
 		list->a_b = 0;
+		list->sorted = 0;
 		if(i == 0)
 			start = list;
 		prev = list;

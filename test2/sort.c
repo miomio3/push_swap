@@ -13,29 +13,52 @@ int	is_sorted(t_list *list)
 		return(-1);
 }
 
-int	next_instraction_inA(t_list *list, int array)
+int	next_instration2top(t_list *pa, t_list *pb, int Alast, int Blast)
 {
-	int		f;
-	t_list	*p;
-	int		last;
+	int	re;
+	int	rr;
+	int rrr;
+	int rrarb;
+	int rrbra;
 
-	p = search_listnum(list, array, A);
-	if(p == NULL)
-		return(NOINSTRUCTION);
-	last = search_Alast(list)->order;
-	if(p->order == last)
-		return(SA);
-	if(p->order > last / 2)
-		return(RA);
+	rr = select_bigger(Alast - pa->order, pb->order - Blast);
+	rrr = select_bigger(pa->order + 1, search_last(pb)->order - pb->order + 1);
+	rrarb = pa->order + 1 + pb->order - Blast;
+	rrbra = search_last(pb)->order - pb->order + 1 + Alast - pa->order;
+	re = rr;
+	if(re > rrr)
+		re = rrr;
+	if(re > rrbra)
+		re = rrbra;
+	if(re > rrarb)
+		return(RRARB);
+	else if(re == rr)
+		return(RR);
+	else if(re == rrbra)
+		return(RRBRA);
 	else
-		return(RRA);
+		return(RRR);
 }
 
-void	sort2(t_list *list, int *array)
+void	push2top(t_list *list, int *array, int argc, int i)
 {
-	t_list	*alist;
-	t_list	*blist;
+	t_list	*pa;
+	t_list	*pb;
 
-	alist = search_Alast(list);
-	blist = search_Blast(list);
+	pa = search_listnum_nosorted(list, array[i]);
+	pb = search_listnum_nosorted(list, array[PUSH2B - 1 - i]);
+	instration2top(next_instration2top(pa, pb, search_Alast(list)->order, search_Blast(list)->order), pa, pb, search_Alast(list)->order, search_Blast(list)->order);
+}
+
+void	sort2(t_list *list, int *array, int argc)
+{
+	int	i;
+
+	i = 0;
+	while(i < PUSH2B)
+	{
+		push2top(list, array, argc, i);
+		//swap2sort
+		i++;
+	}
 }

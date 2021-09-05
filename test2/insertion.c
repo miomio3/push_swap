@@ -33,7 +33,7 @@ void	ra_2push(t_list *list)
 				p = search_Alast(list);
 			else
 				p = p->prev;
-			rra(list);
+			rra(list, PUT);
 		}
 	}
 	else
@@ -41,7 +41,7 @@ void	ra_2push(t_list *list)
 		while(p->order != Alast)
 		{
 			p = p->next;
-			ra(list);
+			ra(list, PUT);
 		}
 	}
 }
@@ -75,7 +75,7 @@ void	insertion(t_list *list, int argc)
 	bouble(array, argc);
 	i = 0;
 	push2b(list, array, argc);
-	sort2(list, array);
+	sort2(list, array, argc);
 	while(is_B(list) == 1)
 		pa(list);
 }

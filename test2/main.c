@@ -9,8 +9,8 @@ int	put_error(void)
 
 int	arg_error(int argc, char **argv)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	if(argc < 2)
 		return(put_error());
@@ -28,7 +28,6 @@ int	arg_error(int argc, char **argv)
 int	main()//int argc, char **argv)
 {
 	t_list	*list;
-	int i;
 
 	char *argv[6] = {"", "1", "-1941500750","-1627890091", "111", "-1"};
 	if(arg_error(6, argv) == ERROR)
