@@ -40,26 +40,22 @@ void	rr(t_list *list)
 	ft_putstr("rr\n");
 }
 
-void	rrarb2top(t_list *pa, t_list *pb, int Alast, int Blast)
+void	sa(t_list *list, int put)
 {
-	int	i;
+	t_list	*pa;
 
-	i = pa->order + 1;
-	while(i--)
-		rra(pa, PUT);
-	i = pb->order - Blast;
-	while(i--)
-		rb(pb, PUT);
+	pa = search_Alast(list);
+	swap_data(pa, pa->prev);
+	if(put == PUT)
+		ft_putstr("sa\n");
 }
 
-void	rrbra2top(t_list *pa, t_list *pb, int Alast, int Blast)
+void	sb(t_list *list, int put)
 {
-	int	i;
+	t_list	*pb;
 
-	i = Alast - pa->order;
-	while(i--)
-		ra(pa, PUT);
-	i = search_last(pb)->order - pb->order + 1;
-	while(i--)
-		rrb(pb, PUT);
+	pb = search_Blast(list);
+	swap_data(pb, pb->next);
+	if(put == PUT)
+		ft_putstr("sb\n");
 }
