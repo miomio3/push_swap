@@ -11,8 +11,8 @@ void	swap_data(t_list *a, t_list *b)
 	a->a_b = b->a_b;
 	b->a_b = tmp;
 	tmp = a->sorted;
-	a->a_b = b->a_b;
-	b->a_b = tmp;
+	a->sorted = b->sorted;
+	b->sorted = tmp;
 }
 
 void	assign_nextdata(t_list *p)
