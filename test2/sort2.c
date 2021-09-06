@@ -19,12 +19,9 @@ out2	push2top(t_list *list, int *array, int argc, int i)
 	t_list	*pb;
 	out2	out;
 
-	pa = search_listnum_nosorted(list, array[i], A);
-	pb = search_listnum_nosorted(list, array[PUSH2B - 1 + i], B);
-	out.pa = pa;
-	out.pb = pb;
+	out = select_num_instruction(list, array, i, argc);
 	if (i != 0)
-		out= instrution2top(next_instration2top(pa, pb, search_Alast(list)->order, search_Blast(list)->order), pa, pb, search_Alast(list)->order, search_Blast(list)->order);
+		out = instrution2top(out.instruction, out.pa, out.pb, search_Alast(list)->order, search_Blast(list)->order);
 	return(out);
 }
 
@@ -37,6 +34,8 @@ void	sort2(t_list *list, int *array, int argc)
 	while(i <= PUSH2B && is_sorted(list) == NOSORTED)
 	{
 		out = push2top(list, array, argc, i);
+		delarray_from0(array, argc - 1 - i * 2, out.pa->num);
+		delarray_fromlast(array, argc - 2 - i * 2, out.pb->num);
 		swap2sort(out.pa, out.pb, i);
 		i++;
 	}

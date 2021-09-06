@@ -20,6 +20,9 @@
 #define PUT				1
 #define SORTED			1
 #define NOSORTED		0
+#define EXIST			1
+#define NOEXIST			0
+#define ARRAYSIZE		argc - 1 - i * 2
 
 typedef	struct t_list
 {
@@ -36,6 +39,7 @@ typedef struct out2
 {
 	t_list *pa;
 	t_list *pb;
+	int		instruction;
 }out2;
 
 int		put_error(void);
@@ -45,9 +49,13 @@ int		ft_atoi_errorcheck(const char *str);
 int		absolute_value(int num);
 int		select_bigger(int num1, int num2);
 int		select_smaller(int num1, int num2);
+int		select_smallerin4(int rr, int rrr, int rrbra, int rrarb);
 t_list	*make_list(int argc, char **argv);
 int		ft_atoi(const char *str);
 void	bouble(int	*a, int argc);
+void	delarray_from0(int *array, int max_array, int num);
+void	delarray_fromlast(int *array, int max_array, int num);
+int		is_array(t_list *list, int *array, int arraysize);
 void	ra_2push(t_list *list);
 void	insertion(t_list *list, int argc);
 void	ra(t_list *list, int put);
@@ -74,17 +82,21 @@ t_list	*search_pushnum_from0(t_list *list, int *array, int argc, int a_b, int ti
 t_list	*search_pushnum_fromlast(t_list *list, int *array, int argc, int a_b, int times);
 void	delarray_fromlast(int *array, int max_array, int num);
 t_list	*search_listnum(t_list *list, int num, int ab);
-t_list	*search_listnum_nosorted(t_list *list, int num, int a_b);
+t_list	*search_num_nosorted_fromlast(t_list *list, int *array, int arraysize, int a_b);
+t_list	*search_num_nosorted_from0(t_list *list, int *array, int arraysize, int a_b);
+out2	select_num_instruction(t_list *list, int *array, int i, int argc);
 t_list	*search_list(t_list *list, int order);
 t_list	*search_last(t_list *list);
 t_list	*search_firstsorted(t_list *list, int a_b);
+t_list	*search_next(t_list *p, int a_b);
+t_list	*search_prev(t_list *p, int a_b);
 void	swap_data(t_list *a, t_list *b);
 void	assign_nextdata(t_list *p);
 void	assign_prevdata(t_list *p);
 void	assign_data(t_list *p, int num, int sorted);
+void	assign_out2(out2 *out, int instruction, t_list *a, t_list *b);
 void	sort2(t_list *list, int *array, int argc);
 void	swap2sort(t_list *pa, t_list *pb, int i);
-int		next_instration2top(t_list *pa, t_list *pb, int Alast, int Blast);
 int		is_sorted(t_list *list);
 int		is_B(t_list *list);
 

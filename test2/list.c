@@ -41,30 +41,6 @@ t_list	*make_list(int argc, char **argv)
 	return(list->prev->next);
 }
 
-t_list	*search_list(t_list *list, int order)
-{
-	t_list	*p;
-
-	p = list;
-	while(p->order != order)
-		p = p->next;
-	return(p);
-}
-
-t_list	*search_listnum(t_list *list, int num, int ab)
-{
-	t_list	*p;
-
-	if(ab == A)
-		p = search_Alast(list);
-	else
-		p = search_Blast(list);
-	while(p->num != num && p->a_b == ab)
-		p = p->prev;
-	if(p->a_b != ab)
-		return(NULL);
-	return(p);
-}
 /*
 int main(void)
 {
