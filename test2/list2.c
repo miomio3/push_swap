@@ -20,7 +20,7 @@ int	is_B(t_list *list)
 	while(p->a_b == A && p->last == 0)
 		p = p->next;
 	if(p->a_b == B)
-		return(1);
+		return(EXIST);
 	else
-		return(-1);
+		return(NOEXIST);
 }

@@ -31,7 +31,7 @@ void	sort2(t_list *list, int *array, int argc)
 	out2	out;
 
 	i = 0;
-	while(i <= PUSH2B && is_sorted(list) == NOSORTED)
+	while(i <= PUSH2B && is_sortedAB(list, A) == NOSORTED && is_sortedAB(list, B) == NOSORTED)
 	{
 		out = push2top(list, array, argc, i);
 		delarray_from0(array, argc - 1 - i * 2, out.pa->num);
@@ -39,4 +39,10 @@ void	sort2(t_list *list, int *array, int argc)
 		swap2sort(out.pa, out.pb, i);
 		i++;
 	}
+	/* while(is_sortedAB(list, A) == NOSORTED)
+		sortB(list);
+	while(is_sortedAB(list, B) == NOSORTED)
+		sortA(list);
+	while(is_sorted(list) == NOSORTED)
+		last2top(list)//最終段階 */
 }

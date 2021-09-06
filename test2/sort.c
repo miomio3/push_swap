@@ -83,6 +83,6 @@ void	insertion(t_list *list, int argc)
 	i = 0;
 	push2b(list, array, argc);
 	sort2(list, array, argc);
-	//while(is_B(list) == 1)
-	//	pa(list);
+	while(is_B(list) == EXIST)
+		pa(list);
 }

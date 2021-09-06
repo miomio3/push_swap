@@ -64,13 +64,13 @@ int	insertion(t_list *list, int argc)
 	return(0);
 }
 
-int	main(int argc, char **argv)
+int	main()//int argc, char **argv)
 {
 	t_list	*list;
 	int i;
 
-	//char *argv[6] = {"", "1353271128", "-1941500750","-1627890091"};
-	list = make_list(argc, argv);
-	insertion(list, argc);
+	char *argv[8] = {"", "1", "-1941500750","-1627890091", "111", "-1", "11", "1"};
+	list = make_list(8, argv);
+	insertion(list, 8);
 	return(0);
 }

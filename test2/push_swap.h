@@ -88,8 +88,10 @@ out2	select_num_instruction(t_list *list, int *array, int i, int argc);
 t_list	*search_list(t_list *list, int order);
 t_list	*search_last(t_list *list);
 t_list	*search_firstsorted(t_list *list, int a_b);
+t_list	*search_first(t_list *list, int a_b);
 t_list	*search_next(t_list *p, int a_b);
 t_list	*search_prev(t_list *p, int a_b);
+t_list	*search_smallest(t_list *list, int a_b);
 void	swap_data(t_list *a, t_list *b);
 void	assign_nextdata(t_list *p);
 void	assign_prevdata(t_list *p);
@@ -98,6 +100,7 @@ void	assign_out2(out2 *out, int instruction, t_list *a, t_list *b);
 void	sort2(t_list *list, int *array, int argc);
 void	swap2sort(t_list *pa, t_list *pb, int i);
 int		is_sorted(t_list *list);
+int		is_sortedAB(t_list *p, int a_b);
 int		is_B(t_list *list);
 
 #endif
