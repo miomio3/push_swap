@@ -25,14 +25,16 @@ int	arg_error(int argc, char **argv)
 	return(NOERROR);
 }
 
-int	main()//int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*list;
 
-	char *argv[14] = {"", "11" ,"22", "0", "11", "0" ,"22" ,"1" ,"1" ,"0" ,"2" ,"0" ,"1" ,"0"};
-	if(arg_error(14, argv) == ERROR)
+	//char *argv[7] = {"", "11" ,"22", "0", "11", "0", "22"};
+	if(arg_error(argc, argv) == ERROR)
 		return(ERROR);
-	list = make_list(14, argv);
-	insertion(list, 14);
+	list = make_list(argc, argv);
+	insertion(list, argc);
 	return(0);
 }
+
+//"", "11" ,"22", "0", "11", "0" ,"22" ,"1" ,"1" ,"0" ,"2" ,"0" ,"1" ,"0"

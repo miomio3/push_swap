@@ -8,8 +8,8 @@ void	sortAB(t_list *list)
 	int		lastB;
 	int		i;
 
-	pa = search_smallest(list, A);
-	pb = search_smallest(list, B);
+	pa = search_smallestlast(list, A);
+	pb = search_smallestlast(list, B);
 	lastA = search_Alast(list)->order;
 	lastB = search_last(list)->order;
 	i = -1;

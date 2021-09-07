@@ -3,28 +3,14 @@
 int	is_sortedAB(t_list *p, int a_b)
 {
 	t_list	*first;
-	t_list	*last;
 	t_list	*ptr;
 	int		i;
 
-	first = search_smallest(p, a_b);
+	first = search_smallestlast(p, a_b);
 	ptr = first;
-	i = 0;
-	while(ptr->num <= search_next(ptr, a_b)->num && (ptr != first || i == 0))
-	{
-		ptr = search_next(ptr, a_b);
-		i++;
-	}
-	if((ptr->next ==  || search_prev(ptr, a_b)->num == ptr->num) && i > 0)
-		return(SORTED);
-	ptr = first;
-	i = 0;
-	while(ptr->num <= search_prev(ptr, a_b)->num && (ptr != first || i == 0))
-	{
+	while(ptr->num <= search_prev(ptr, a_b)->num && search_prev(ptr, a_b) != first)
 		ptr = search_prev(ptr, a_b);
-		i++;
-	}
-	if((ptr == search_next(first, a_b) || ptr->num == search_prev(ptr, a_b)->num) && i > 0)
+	if(search_prev(ptr, a_b) == first)
 		return(SORTED);
 	return(NOSORTED);
 }
