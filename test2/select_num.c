@@ -33,10 +33,10 @@ out2	select_num_instruction(t_list *list, int *array, int i, int argc)
 	t_list	*b0;
 	out2	out;
 
-	alast = search_num_nosorted_fromlast(list, array, ARRAYSIZE,A);
-	blast = search_num_nosorted_fromlast(list, array,ARRAYSIZE, B);
-	a0 = search_num_nosorted_from0(list, array,ARRAYSIZE ,A);
-	b0 = search_num_nosorted_from0(list, array, ARRAYSIZE, B);
+	alast = search_num_nosorted_fromlast(list, array[i],A);
+	blast = search_num_nosorted_fromlast(list, array[argc - 2 - i], B);
+	a0 = search_num_nosorted_from0(list, array[i],A);
+	b0 = search_num_nosorted_from0(list, array[argc - 2 - i], B);
 	out = select_num(alast, blast, a0, b0);
 	return(out);
 }

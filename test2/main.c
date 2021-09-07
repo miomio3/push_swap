@@ -29,10 +29,10 @@ int	main()//int argc, char **argv)
 {
 	t_list	*list;
 
-	char *argv[8] = {"", "1", "-1941500750","-1627890091", "111", "-1", "11", "1"};
-	if(arg_error(8, argv) == ERROR)
+	char *argv[5] = {"", "11", "1", "-1", "11"};
+	if(arg_error(5, argv) == ERROR)
 		return(ERROR);
-	list = make_list(8, argv);
-	insertion(list, 8);
+	list = make_list(5, argv);
+	insertion(list, 5);
 	return(0);
 }

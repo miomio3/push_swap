@@ -31,18 +31,18 @@ void	sort2(t_list *list, int *array, int argc)
 	out2	out;
 
 	i = 0;
-	while(i <= PUSH2B && is_sortedAB(list, A) == NOSORTED && is_sortedAB(list, B) == NOSORTED)
+	while(ARRAYSIZE > 1 && is_sortedAB(list, A) == NOSORTED && is_sortedAB(list, B) == NOSORTED)
 	{
 		out = push2top(list, array, argc, i);
-		delarray_from0(array, argc - 1 - i * 2, out.pa->num);
-		delarray_fromlast(array, argc - 2 - i * 2, out.pb->num);
 		swap2sort(out.pa, out.pb, i);
 		i++;
 	}
-	/* while(is_sortedAB(list, A) == NOSORTED)
-		sortB(list);
 	while(is_sortedAB(list, B) == NOSORTED)
-		sortA(list);
+		sortB(list, array, argc, i);
+	while(is_sortedAB(list, A) == NOSORTED)
+		sortA(list, array, argc, i);
 	while(is_sorted(list) == NOSORTED)
-		last2top(list)//最終段階 */
+		sortAB(list);
+	while(is_B(list) == EXIST)
+		pa(list);
 }

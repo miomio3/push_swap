@@ -24,8 +24,6 @@ t_list	*search_firstsorted(t_list *list, int a_b)
 		while(p != last && p->sorted != SORTED)
 			p = p->next;
 	}
-	if(p->sorted == NOSORTED)
-		return(NULL);
 	return(p);
 }
 

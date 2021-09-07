@@ -60,33 +60,45 @@ t_list	*search_pushnum_fromlast(t_list *list, int *array, int argc, int a_b, int
 	return(p->next);
 }
 
-t_list	*search_num_nosorted_fromlast(t_list *list, int *array, int arraysize, int a_b)
+t_list	*search_num_nosorted_fromlast(t_list *list, int num, int a_b)
 {
 	int		i;
 	t_list	*p;
 
 	i = 0;
 	if(a_b == A)
+	{
 		p = search_Alast(list);
+		while(p->num != num || p->sorted == SORTED)
+			p = p->prev;
+	}
 	else
-		p = search_last(list);
-	while((is_array(p , array, arraysize) == NOEXIST || p->sorted == SORTED) && p->order != 0)
-		p = p->prev;
+	{
+		p = search_Blast(list);
+		while(p->num != num || p->sorted == SORTED)
+			p = p->next;
+	}
 	return(p);
 }
 
-t_list	*search_num_nosorted_from0(t_list *list, int *array, int arraysize, int a_b)
+t_list	*search_num_nosorted_from0(t_list *list, int num, int a_b)
 {
 	int		i;
 	t_list	*p;
 
 	i = 0;
 	if(a_b == A)
+	{
 		p = search_list(list, 0);
+		while(p->num != num || p->sorted == SORTED)
+			p = p->next;
+	}
 	else
-		p = search_Blast(list);
-	while((is_array(p , array, arraysize) == NOEXIST || p->sorted != 0) && p->last != 1)
-		p = p->next;
+	{
+		p = search_last(list);
+		while(p->num != num || p->sorted == SORTED)
+			p = p->prev;
+	}
 	return(p);
 }
 
