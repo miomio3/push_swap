@@ -25,12 +25,16 @@ void	push2topA(t_list *p)
 
 void	swap2sortA(t_list *p)
 {
+	t_list	*firstsorted;
 	int	sorted_order;
 	int	p_order;
 	int	i;
 
-	sorted_order = search_firstsorted(p, A)->order;
+	firstsorted = search_firstsorted(p, A);
+	if(firstsorted->sorted == NOSORTED)
+		return;
 	p_order = p->order;
+	sorted_order = firstsorted->order;
 	i = 0;
 	while(i < p_order - sorted_order - 1)
 	{
@@ -46,11 +50,11 @@ void	sortA(t_list *list, int *array, int argc, int nowi)
 	t_list	*p;
 
 	i = nowi;
-	while(i < argc - 1 - PUSH2B)
+	while(i < argc - 1 - PUSH2B && is_sortedAB(list, A) == NOSORTED)
 	{
 		p = search_num_nosorted_from0(list, array[i], A);
 		push2topA(p);
-		swap2sortA(p);
+		swap2sortA(search_Alast(p));
 		search_Alast(p)->sorted = SORTED;
 		i++;
 	}

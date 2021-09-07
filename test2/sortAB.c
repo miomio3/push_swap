@@ -8,8 +8,8 @@ void	sortAB(t_list *list)
 	int		lastB;
 	int		i;
 
-	pa = search_smallest_sorted(list, A);
-	pb = search_smallest_sorted(list, B);
+	pa = search_smallest(list, A);
+	pb = search_smallest(list, B);
 	lastA = search_Alast(list)->order;
 	lastB = search_last(list)->order;
 	i = -1;
@@ -17,5 +17,5 @@ void	sortAB(t_list *list)
 		ra(list, PUT);
 	i = -1;
 	while(++i < lastB - pb->order)
-		rb(list, PUT);
+		rrb(list, PUT);
 }

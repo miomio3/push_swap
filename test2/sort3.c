@@ -7,18 +7,15 @@ int	is_sortedAB(t_list *p, int a_b)
 	t_list	*ptr;
 	int		i;
 
-	if(a_b == A)
-		first = search_Alast(p);
-	else
-		first = search_Blast(p);
+	first = search_smallest(p, a_b);
 	ptr = first;
 	i = 0;
-	while(ptr->num >= search_next(ptr, a_b)->num && (ptr != first || i == 0))
+	while(ptr->num <= search_next(ptr, a_b)->num && (ptr != first || i == 0))
 	{
 		ptr = search_next(ptr, a_b);
 		i++;
 	}
-	if(ptr == search_prev(first, a_b) && i > 0)
+	if((ptr->next ==  || search_prev(ptr, a_b)->num == ptr->num) && i > 0)
 		return(SORTED);
 	ptr = first;
 	i = 0;
@@ -27,7 +24,7 @@ int	is_sortedAB(t_list *p, int a_b)
 		ptr = search_prev(ptr, a_b);
 		i++;
 	}
-	if(ptr == search_next(first, a_b) && i > 0)
+	if((ptr == search_next(first, a_b) || ptr->num == search_prev(ptr, a_b)->num) && i > 0)
 		return(SORTED);
 	return(NOSORTED);
 }
