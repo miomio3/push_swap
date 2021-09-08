@@ -12,6 +12,7 @@ static int	*make_int(t_list *list, int argc)
 	while(i < argc - 1)
 	{
 		array[i] = p->num;
+		p->arrayorder = i;
 		p = p->next;
 		i++;
 	}
@@ -79,7 +80,7 @@ void	insertion(t_list *list, int argc)
 	int	i;
 
 	array = make_int(list, argc);
-	bouble(array, argc);
+	bouble(array, argc, list);
 	i = 0;
 	push2b(list, array, argc);
 	sort2(list, array, argc);

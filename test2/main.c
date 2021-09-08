@@ -3,7 +3,7 @@
 
 int	put_error(void)
 {
-	ft_putstr("Err*or\n");
+	ft_putstr("Error\n");
 	return(ERROR);
 }
 
@@ -25,16 +25,17 @@ int	arg_error(int argc, char **argv)
 	return(NOERROR);
 }
 
-int	main(int argc, char **argv)
+int	main()//int argc, char **argv)
 {
 	t_list	*list;
 
-	//char *argv[7] = {"", "11" ,"22", "0", "11", "0", "22"};
-	if(arg_error(argc, argv) == ERROR)
+	char *argv[6] = {"", "1","2","1","0","2"};
+	if(arg_error(6, argv) == ERROR)
 		return(ERROR);
-	list = make_list(argc, argv);
-	insertion(list, argc);
+	list = make_list(6, argv);
+	insertion(list, 6);
 	return(0);
 }
 
+//"","11", "11", "11", "11" ,"-1"," 10" ,"1", "11" ,"11" ,"1", "1","1" ,"10","0" ,"0","-1" ,"1" ,"1" 　19個
 //"", "11" ,"22", "0", "11", "0" ,"22" ,"1" ,"1" ,"0" ,"2" ,"0" ,"1" ,"0"

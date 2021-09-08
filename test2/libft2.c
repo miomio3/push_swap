@@ -1,12 +1,12 @@
 #include "push_swap.h"
-
+/* 
 int	absolute_value(int num)
 {
 	if(num < 0)
 		num = num * (-1);
 	return(num);
 }
-
+ */
 void	delarray_fromlast(int *array, int max_array, int num)
 {
 	int	i;
@@ -23,7 +23,7 @@ void	delarray_fromlast(int *array, int max_array, int num)
 		}
 	}
 }
-
+/* 
 void	delarray_from0(int *array, int max_array, int num)
 {
 	int	i;
@@ -40,3 +40,4 @@ void	delarray_from0(int *array, int max_array, int num)
 		}
 	}
 }
+ */

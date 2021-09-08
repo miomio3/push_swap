@@ -70,13 +70,13 @@ t_list	*search_num_nosorted_fromlast(t_list *list, int num, int a_b)
 	{
 		p = search_Alast(list);
 		while(p->num != num || p->sorted == SORTED)
-			p = p->prev;
+			p = search_prev(p, a_b);
 	}
 	else
 	{
 		p = search_Blast(list);
 		while(p->num != num || p->sorted == SORTED)
-			p = p->next;
+			p = search_next(p, a_b);
 	}
 	return(p);
 }

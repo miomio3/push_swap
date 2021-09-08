@@ -13,21 +13,26 @@ void	swap_data(t_list *a, t_list *b)
 	tmp = a->sorted;
 	a->sorted = b->sorted;
 	b->sorted = tmp;
+	tmp = a->arrayorder;
+	a->arrayorder = b->arrayorder;
+	b->arrayorder = tmp;
 }
 
 void	assign_nextdata(t_list *p)
 {
 	p->num = p->next->num;
 	p->sorted = p->next->sorted;
+	p->arrayorder = p->next->arrayorder;
 }
 
 void	assign_prevdata(t_list *p)
 {
 	p->num = p->prev->num;
 	p->sorted = p->prev->sorted;
+	p->arrayorder = p->prev->arrayorder;
 }
 
-void	assign_data(t_list *p, int num, int sorted)
+void	assign_data(t_list *p, int num, int sorted, int arrayorder)
 {
 	p->num = num;
 	p->sorted = sorted;

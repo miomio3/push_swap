@@ -39,7 +39,7 @@ t_list	*search_smallest0(t_list *p, int a_b)
 	i = 0;
 	while(ptr != first || i++ == 0)
 	{
-		if(ptr->num > search_next(ptr, a_b)->num)
+		if(re->num < search_next(ptr, a_b)->num)
 			re = search_next(ptr, a_b);
 		ptr = search_next(ptr, a_b);
 	}
@@ -62,7 +62,7 @@ t_list	*search_smallestlast(t_list *p, int a_b)
 	i = 0;
 	while(ptr != first || i++ == 0)
 	{
-		if(ptr->num >= search_next(ptr, a_b)->num)
+		if(re->num >= search_next(ptr, a_b)->num)
 			re = search_next(ptr, a_b);
 		ptr = search_next(ptr, a_b);
 	}

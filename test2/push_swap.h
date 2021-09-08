@@ -26,6 +26,7 @@
 
 typedef	struct t_list
 {
+	int				arrayorder;
 	int				num;
 	int				a_b;
 	int				order;//変えない
@@ -52,7 +53,7 @@ int		select_smaller(int num1, int num2);
 int		select_smallerin4(int rr, int rrr, int rrbra, int rrarb);
 t_list	*make_list(int argc, char **argv);
 int		ft_atoi(const char *str);
-void	bouble(int	*a, int argc);
+void	bouble(int	*a, int argc, t_list *list);
 void	delarray_from0(int *array, int max_array, int num);
 void	delarray_fromlast(int *array, int max_array, int num);
 int		is_array(t_list *list, int *array, int arraysize);
@@ -93,6 +94,7 @@ t_list	*search_smallest0(t_list *p, int a_b);
 t_list	*search_smallestlast(t_list *p, int a_b);
 t_list	*search_next(t_list *p, int a_b);
 t_list	*search_prev(t_list *p, int a_b);
+t_list	*search_arrayorder(t_list *list, int j);
 void	swap_data(t_list *a, t_list *b);
 void	assign_nextdata(t_list *p);
 void	assign_prevdata(t_list *p);

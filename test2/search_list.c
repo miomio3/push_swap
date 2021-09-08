@@ -5,6 +5,7 @@ t_list	*search_last(t_list *list)
 	return(search_list(list, 0)->prev);
 }
 
+/* 
 t_list	*search_firstsorted(t_list *list, int a_b)
 {
 	t_list	*p;
@@ -26,7 +27,7 @@ t_list	*search_firstsorted(t_list *list, int a_b)
 	}
 	return(p);
 }
-
+ */
 
 t_list	*search_Alast(t_list	*list)
 {

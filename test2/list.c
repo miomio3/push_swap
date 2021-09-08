@@ -1,13 +1,13 @@
 #include "push_swap.h"
 
-void	set_data(t_list *list, const char *argv, const int i)
+static void	set_data(t_list *list, const char *argv, const int i)
 {
 	list->num = atoi(argv);
 	list->order = i;
 	list->a_b = A;
 }
 
-void	connect_startend(t_list *prev, t_list *start)
+static void	connect_startend(t_list *prev, t_list *start)
 {
 	prev->last = 1;
 	prev->next = start;
