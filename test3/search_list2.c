@@ -22,7 +22,7 @@ t_list	*search_pushnum_from0(t_list *list, int argc)
 	int		i;
 
 	p = search_list(list, 0);
-	while(p->arrayorder <= PUSH2B - 1)
+	while(p->arrayorder <= argc - 2 - PUSH2B)
 		p = search_next(p, A);
 	return(p);
 }
@@ -34,7 +34,7 @@ t_list	*search_pushnum_fromlast(t_list *list, int argc)
 	int		i;
 
 	p = search_Alast(list);
-	while(p->arrayorder <= PUSH2B - 1)
+	while(p->arrayorder <= argc - 2 - PUSH2B)
 		p = search_prev(p, A);
 	return(p);
 }

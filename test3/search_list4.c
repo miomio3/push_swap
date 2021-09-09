@@ -76,3 +76,23 @@ t_list	*search_smallestlast(t_list *p, int a_b)
 		return(search_lastAB(p, a_b));
 	return(re);
 }
+
+t_list	*search_last_biggestarray_sorted(t_list *list, int a_b)
+{
+	t_list	*first;
+	t_list	*p;
+	t_list	*re;
+	int		i;
+
+	p = search_sorted(list, a_b);
+	re = p;
+	first = p;
+	i = 0;
+	while(p != first || i++ == 0)
+	{
+		if(re->arrayorder > p->arrayorder && p->sorted == SORTED)
+			re = p;
+		p = search_next(p, a_b);
+	}
+	return(re);
+}

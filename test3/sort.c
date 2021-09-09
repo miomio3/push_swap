@@ -50,7 +50,8 @@ void	push2b(t_list *list, int *array, int argc)
 	t_list	*back;
 	int		i;
 
-	while(i <= PUSH2B && is_sorted(list) == NOSORTED)
+	i = 0;
+	while(i < PUSH2B && is_sorted(list) == NOSORTED)
 	{
 		p = search_pushnum_from0(list, argc);
 		back = search_pushnum_fromlast(list, argc);

@@ -9,19 +9,19 @@ out2	select_instruction(t_list *pa, t_list *pb)
 	int		rrarb;
 	int		re;
 
-	rr = select_bigger(search_Alast(pa)->order - pa->order ,pb->order - search_Blast(pa)->order);
-	rrr = select_bigger(pa->order + 1 , search_last(pa)->order - pb->order + 1);
-	rrbra = search_last(pa)->order - pb->order + 1 + search_Alast(pa)->order - pa->order;
-	rrarb =  pa->order + 1 + pb->order - search_Blast(pa)->order;
+	rr = select_bigger(ra2top_times(pa) ,rb2top_times(pb));
+	rrr = select_bigger(rra2top_times(pa) , rrb2top_times(pb));
+	rrbra = rrb2top_times(pb) + ra2top_times(pa);
+	rrarb =  rra2top_times(pa) + rb2top_times(pb);
 	re = select_smallerin4(rr, rrr, rrbra, rrarb);
 	if(re == rr)
 		assign_out2(&out, RR, pa, pb);
 	else if(re == rrr)
 		assign_out2(&out, RRR, pa, pb);
 	else if(re == rrarb)
-		assign_out2(&out, RRBRA, pa, pb);
-	else
 		assign_out2(&out, RRARB, pa, pb);
+	else
+		assign_out2(&out, RRBRA, pa, pb);
 	return(out);
 }
 

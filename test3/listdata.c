@@ -13,7 +13,7 @@ void	swap_data(t_list *a, t_list *b)
 	tmp = a->sorted;
 	a->sorted = b->sorted;
 	b->sorted = tmp;
-	a->arrayorder = tmp;
+	tmp = a->arrayorder;
 	a->arrayorder = b->arrayorder;
 	b->arrayorder = tmp;
 }

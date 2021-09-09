@@ -27,27 +27,23 @@ void	push2topB(t_list *p)
 
 void	swap2sortB(t_list *p)
 {
-	t_list	*firstsorted;
-	int		sorted_order;
-	int		difference;
-	int		last;
-	int		final;
+	t_list	*lastsorted;
+	int		rb2top;
+	int		rrb2top;
 	int		i;
 
-	firstsorted = search_smallestarray_sorted(p, B);
-	if(firstsorted->sorted == NOSORTED)
+	lastsorted = search_last_biggestarray_sorted(p, B);
+	if(lastsorted->sorted == NOSORTED)
 		return;
-	sorted_order = firstsorted->order;
-	last = search_Blast(p)->order;
-	final = search_last(p)->order;
-	difference = final - last;
+	rb2top = rb2top_times(lastsorted) - 1;
+	rrb2top = rrb2top_times(lastsorted);
 	i = 0;
-	if(sorted_order - last > difference / 2)
-		while(i++ < sorted_order - last - 1)
+	if(rb2top < rrb2top)
+		while(i++ < rb2top)
 			sb_rb(p);
 	else
-		while(i++ < final - sorted_order)
-			sb_rrb(p);
+		while(i++ < rrb2top)
+			rrb_sb(p);
 
 }
 

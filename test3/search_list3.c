@@ -81,7 +81,7 @@ t_list	*search_smallestarray_nosorted(t_list *list, int a_b)
 	i = 0;
 	while(p != first || i++ == 0)
 	{
-		if(re->arrayorder > p->arrayorder && p->sorted == NOSORTED)
+		if(re->arrayorder < p->arrayorder && p->sorted == NOSORTED)
 			re = p;
 		p = search_next(p, a_b);
 	}
@@ -101,7 +101,7 @@ t_list	*search_smallestarray_sorted(t_list *list, int a_b)
 	i = 0;
 	while(p != first || i++ == 0)
 	{
-		if(re->arrayorder > p->arrayorder && p->sorted == SORTED)
+		if(re->arrayorder < p->arrayorder && p->sorted == SORTED)
 			re = p;
 		p = search_next(p, a_b);
 	}

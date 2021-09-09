@@ -18,14 +18,20 @@ void	sb_rb(t_list *list)
 	rb(list, PUT);
 }
 
-void	sa_rra(t_list *list)
+void	rrr_ss(t_list *list)
 {
-	sa(list, PUT);
-	rra(list, PUT);
+	rrr(list);
+	ss(list);
 }
 
-void	sb_rrb(t_list *list)
+void	rra_sa(t_list *list)
 {
-	sb(list, PUT);
+	rra(list, PUT);
+	sa(list, PUT);
+}
+
+void	rrb_sb(t_list *list)
+{
 	rrb(list, PUT);
+	sb(list, PUT);
 }

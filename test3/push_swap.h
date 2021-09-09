@@ -27,13 +27,13 @@
 typedef	struct t_list
 {
 	int				arrayorder;
+	int				sorted;
 	int				num;
 	int				a_b;
 	int				order;//変えない
 	struct t_list	*next;//変えない
 	struct t_list	*prev;//変えない
 	int				last;//変えない
-	int				sorted;
 }t_list;
 
 typedef struct out2
@@ -60,6 +60,10 @@ void	delarray_fromlast(int *array, int max_array, int num);
 int		is_array(t_list *list, int *array, int arraysize);
 void	ra_2push(t_list *list);
 void	sort(t_list *list, int argc);
+int		ra2top_times(t_list *pa);
+int		rra2top_times(t_list *pa);
+int		rb2top_times(t_list *pb);
+int		rrb2top_times(t_list *pb);
 void	ra(t_list *list, int put);
 void	rb(t_list *list, int put);
 void	rr(t_list *list);
@@ -72,8 +76,9 @@ void	ss(t_list *list);
 void	ss_rr(t_list *list);
 void	sa_ra(t_list *list);
 void	sb_rb(t_list *list);
-void	sa_rra(t_list *list);
-void	sb_rrb(t_list *list);
+void	rra_sa(t_list *list);
+void	rrb_sb(t_list *list);
+void	rrr_ss(t_list *list);
 void	pb(t_list *list);
 void	pa(t_list *list);
 void	rrbra2top(t_list *pa, t_list *pb, int Alast, int Blast);
@@ -96,6 +101,7 @@ t_list	*search_smallestarray_nosorted(t_list *list, int a_b);
 t_list	*search_smallestarray_sorted(t_list *list, int a_b);
 t_list	*search_smallestarray_both(t_list *list, int a_b);
 t_list	*search_smallestlast(t_list *p, int a_b);
+t_list	*search_last_biggestarray_sorted(t_list *list, int a_b);
 t_list	*search_sorted(t_list *list, int a_b);
 t_list	*search_lastAB(t_list *p, int a_b);
 out2	select_num_instruction(t_list *list, int *array, int i, int argc);

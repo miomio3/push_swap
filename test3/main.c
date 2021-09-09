@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*list;
 
-	char *argv[] = {"", "11","1","1","-1","0"};
+	//char *argv[] = {"", "11" ,"-1", "1", "1", "-1", "1", "1", "20"};
 	if(arg_error(argc, argv) == ERROR)
 		return(ERROR);
 	list = make_list(argc, argv);

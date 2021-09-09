@@ -26,22 +26,24 @@ void	push2topA(t_list *p)
 void	swap2sortA(t_list *p)
 {
 	t_list	*firstsorted;
+	int	ra2top;
+	int	rra2top;
 	int	sorted_order;
 	int	p_order;
 	int	i;
 
-	firstsorted = search_smallestarray_sorted(p, A);
+	firstsorted = search_last_biggestarray_sorted(p, A);
 	if(firstsorted->sorted == NOSORTED)
 		return;
-	p_order = p->order;
-	sorted_order = firstsorted->order;
+	ra2top = ra2top_times(firstsorted);
+	rra2top = rra2top_times(firstsorted) - 1;
 	i = 0;
-	if(sorted_order > p_order / 2)
-		while(i++ < p_order - sorted_order - 1)
+	if(ra2top < rra2top)
+		while(i++ < ra2top)
 			sa_ra(p);
 	else
-		while(i++ < sorted_order + 1)
-			sa_rra(p);
+		while(i++ < rra2top)
+			rra_sa(p);
 }
 
 void	sortA(t_list *list, int *array, int argc, int nowi)
