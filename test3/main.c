@@ -24,15 +24,16 @@ int	arg_error(int argc, char **argv)
 	return(NOERROR);
 }
 
-int	main()//int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*list;
 
-	char *argv[6] = {"", "1","2","1","0","2"};
-	if(arg_error(6, argv) == ERROR)
+	char *argv[] = {"", "11","1","1","-1","0"};
+	if(arg_error(argc, argv) == ERROR)
 		return(ERROR);
-	list = make_list(6, argv);
-	sort(list, 6);
+	list = make_list(argc, argv);
+	sort(list, argc);
+	free_list(list);
 	return(0);
 }
 

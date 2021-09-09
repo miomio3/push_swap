@@ -30,18 +30,18 @@ void	swap2sortA(t_list *p)
 	int	p_order;
 	int	i;
 
-	firstsorted = search_firstsorted(p, A);
+	firstsorted = search_smallestarray_sorted(p, A);
 	if(firstsorted->sorted == NOSORTED)
 		return;
 	p_order = p->order;
 	sorted_order = firstsorted->order;
 	i = 0;
-	while(i < p_order - sorted_order - 1)
-	{
-		sa(p, PUT);
-		ra(p, PUT);
-		i++;
-	}
+	if(sorted_order > p_order / 2)
+		while(i++ < p_order - sorted_order - 1)
+			sa_ra(p);
+	else
+		while(i++ < sorted_order + 1)
+			sa_rra(p);
 }
 
 void	sortA(t_list *list, int *array, int argc, int nowi)
@@ -52,7 +52,7 @@ void	sortA(t_list *list, int *array, int argc, int nowi)
 	i = nowi;
 	while(i < argc - 1 - PUSH2B && is_sortedAB(list, A) == NOSORTED)
 	{
-		p = search_num_nosorted_from0(list, array[i], A);
+		p = search_smallestarray_nosorted(list, A);
 		push2topA(p);
 		swap2sortA(search_Alast(p));
 		search_Alast(p)->sorted = SORTED;

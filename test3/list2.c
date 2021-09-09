@@ -1,17 +1,5 @@
 #include "push_swap.h"
 
-void	free_list(t_list *list)
-{
-	t_list	*p;
-
-	p = list;
-	while(p)
-	{
-		free(p);
-		list = NULL;
-	}
-}
-
 int	is_B(t_list *list)
 {
 	t_list	*p;
@@ -25,9 +13,31 @@ int	is_B(t_list *list)
 		return(NOEXIST);
 }
 
-t_list	*search_arrayorder(t_list *list, int i)
+
+int	is_sorted(t_list *list)
 {
-	while(list->arrayorder != i)
-		list = list->next;
-	return(list);
+	t_list	*p;
+
+	p = search_list(list, 0);
+	while(p->num >= p->next->num && p->last == 0)
+		p = p->next;
+	if(p->last == 1)
+		return(SORTED);
+	else
+		return(NOSORTED);
+}
+
+int	is_sortedAB(t_list *p, int a_b)
+{
+	t_list	*first;
+	t_list	*ptr;
+	int		i;
+
+	first = search_smallestlast(p, a_b);
+	ptr = first;
+	while(ptr->num <= search_prev(ptr, a_b)->num && search_prev(ptr, a_b) != first)
+		ptr = search_prev(ptr, a_b);
+	if(search_prev(ptr, a_b) == first)
+		return(SORTED);
+	return(NOSORTED);
 }

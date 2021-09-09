@@ -4,20 +4,15 @@ void	ra(t_list *list, int put)
 {
 	t_list	*p;
 	int		i;
-	int		lastnum;
-	int		lastsorted;
+	t_list	last;
 
 	p = search_Alast(list);
 	i = p->order;
-	lastnum = p->num;
-	lastsorted = p->sorted;
+	last = *p;
 	while(i >= 0)
 	{
 		if(i == 0)
-		{
-			p->num = lastnum;
-			p->sorted = lastsorted;
-		}
+			assign_data(p, last.num, last.sorted, last.arrayorder);
 		else
 			assign_prevdata(p);
 		p = p->prev;
@@ -31,22 +26,17 @@ void	rra(t_list *list, int put)
 {
 	t_list	*p;
 	int		i;
-	int		firstnum;
 	int		Alast;
-	int		firstsorted;
+	t_list	first;
 
 	Alast = search_Alast(list)->order;
 	p = search_list(list, 0);
-	firstnum = p->num;
-	firstsorted = p->sorted;
+	first = *p;
 	i = 0;
 	while(i <= Alast)
 	{
 		if(i == Alast)
-		{
-			p->num = firstnum;
-			p->sorted = firstsorted;
-		}
+			assign_data(p, first.num, first.sorted, first.arrayorder);
 		else
 			assign_nextdata(p);
 		p = p->next;

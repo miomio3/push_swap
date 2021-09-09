@@ -1,20 +1,5 @@
 #include "push_swap.h"
 
-int	is_sortedAB(t_list *p, int a_b)
-{
-	t_list	*first;
-	t_list	*ptr;
-	int		i;
-
-	first = search_smallestarray(p, a_b);
-	ptr = first;
-	while(ptr->num <= search_prev(ptr, a_b)->num && search_prev(ptr, a_b) != first)
-		ptr = search_prev(ptr, a_b);
-	if(search_prev(ptr, a_b) == first)
-		return(SORTED);
-	return(NOSORTED);
-}
-
 int	select_instruction2sort(int Alast, int Blast, t_list *firstA, t_list *firstB)
 {
 	int	rr;

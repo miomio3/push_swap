@@ -15,43 +15,28 @@ t_list	*search_listnum(t_list *list, int num, int ab)
 	return(p);
 }
 
-t_list	*search_pushnum_from0(t_list *list, int *array, int argc, int times)
+t_list	*search_pushnum_from0(t_list *list, int argc)
 {
 	t_list	*p;
 	int		f;
 	int		i;
 
 	p = search_list(list, 0);
-	f = 1;
-	while(f)
-	{
-		i = -1;
-		while(++i < PUSH2B - times && f)
-			if(p->num == array[argc - 2 - times - i] && f)
-				f = 0;
-		p = p->next;
-	}
-	return(p->prev);
+	while(p->arrayorder <= PUSH2B - 1)
+		p = search_next(p, A);
+	return(p);
 }
 
 
-t_list	*search_pushnum_fromlast(t_list *list, int *array, int argc, int times)
+t_list	*search_pushnum_fromlast(t_list *list, int argc)
 {
 	t_list	*p;
 	int		i;
-	int		f;
 
 	p = search_Alast(list);
-	f = 1;
-	while(f)
-	{
-		i = -1;
-		while(++i < PUSH2B - times && f)
-			if(p->num == array[argc - 2 - times - i] && f)
-				f = 0;
-		p = p->prev;
-	}
-	return(p->next);
+	while(p->arrayorder <= PUSH2B - 1)
+		p = search_prev(p, A);
+	return(p);
 }
 
 t_list	*search_num_nosorted_fromlast(t_list *list, int num, int a_b)

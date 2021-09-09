@@ -3,9 +3,11 @@
 void	push2topB(t_list *p)
 {
 	int	last;
+	int	difference;
 
 	last = search_Blast(p)->order;
-	if(p->order > last / 2)
+	difference = search_last(p)->order - last;
+	if(p->order - last < difference / 2)
 	{
 		while(p->order != last)
 		{
@@ -27,21 +29,26 @@ void	swap2sortB(t_list *p)
 {
 	t_list	*firstsorted;
 	int		sorted_order;
-	int		p_order;
+	int		difference;
+	int		last;
+	int		final;
 	int		i;
 
-	firstsorted = search_firstsorted(p, B);
+	firstsorted = search_smallestarray_sorted(p, B);
 	if(firstsorted->sorted == NOSORTED)
 		return;
 	sorted_order = firstsorted->order;
-	p_order = p->order;
+	last = search_Blast(p)->order;
+	final = search_last(p)->order;
+	difference = final - last;
 	i = 0;
-	while(i <  sorted_order - p_order - 1)
-	{
-		sb(p, PUT);
-		rb(p, PUT);
-		i++;
-	}
+	if(sorted_order - last > difference / 2)
+		while(i++ < sorted_order - last - 1)
+			sb_rb(p);
+	else
+		while(i++ < final - sorted_order)
+			sb_rrb(p);
+
 }
 
 void	sortB(t_list *list, int *array, int argc, int nowi)
@@ -52,7 +59,7 @@ void	sortB(t_list *list, int *array, int argc, int nowi)
 	i = nowi;
 	while(i < PUSH2B && is_sortedAB(list, B) == NOSORTED)
 	{
-		p = search_num_nosorted_from0(list, array[argc - 2 - i], B);
+		p = search_smallestarray_nosorted(list, B);
 		push2topB(p);
 		swap2sortB(search_Blast(p));
 		search_Blast(p)->sorted = SORTED;

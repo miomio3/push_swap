@@ -42,5 +42,12 @@ int	select_smallerin4(int rr, int rrr, int rrbra, int rrarb)
 	return(re);
 }
 
+t_list	*select_smaller_array(t_list *p1, t_list *p2)
+{
+	if(p1->arrayorder < p2->arrayorder)
+		return(p1);
+	else
+		return(p2);
+}
 
 

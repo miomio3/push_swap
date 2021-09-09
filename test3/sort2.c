@@ -1,18 +1,5 @@
 #include "push_swap.h"
 
-int	is_sorted(t_list *list)
-{
-	t_list	*p;
-
-	p = search_list(list, 0);
-	while(p->num >= p->next->num && p->last == 0)
-		p = p->next;
-	if(p->last == 1)
-		return(SORTED);
-	else
-		return(NOSORTED);
-}
-
 out2	push2top(t_list *list, int *array, int argc, int i)
 {
 	t_list	*pa;

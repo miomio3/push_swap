@@ -9,9 +9,9 @@ out2	select_instruction(t_list *pa, t_list *pb)
 	int		rrarb;
 	int		re;
 
-	rr = select_bigger(search_Alast(pa) - pa->order ,pb->order - search_Blast(pa)->order);
+	rr = select_bigger(search_Alast(pa)->order - pa->order ,pb->order - search_Blast(pa)->order);
 	rrr = select_bigger(pa->order + 1 , search_last(pa)->order - pb->order + 1);
-	rrbra = search_last(pa)->order - pb->order + 1 + search_Alast(pa) - pa->order;
+	rrbra = search_last(pa)->order - pb->order + 1 + search_Alast(pa)->order - pa->order;
 	rrarb =  pa->order + 1 + pb->order - search_Blast(pa)->order;
 	re = select_smallerin4(rr, rrr, rrbra, rrarb);
 	if(re == rr)
