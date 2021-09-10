@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	if(arg_error(argc, argv) == ERROR)
 		return(ERROR);
 	list = make_list(argc, argv);
-	sort(list, argc);
+	
 	free_list(list);
 	return(0);
 }
