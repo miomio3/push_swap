@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void	set_data(t_list *list, const char *argv, const int i)
+static void	set_data(t_list *list, const char *argv, t_list *prev, const int i)
 {
 	list->num = atoi(argv);
 	list->order = i;
@@ -8,6 +8,11 @@ static void	set_data(t_list *list, const char *argv, const int i)
 	list->last = 0;
 	list->a_b = 0;
 	list->sorted = 0;
+	if(prev != NULL)
+	{
+			list->prev = prev;
+			prev->next = list;
+	}
 }
 
 static void	connect_startend(t_list *prev, t_list *start)
@@ -25,24 +30,19 @@ t_list	*make_list(int argc, char *argv[])
 	t_list	*list;
 
 	i = 0;
-	list = malloc(sizeof(t_list) * 1);
+	prev = NULL;
 	while(i < argc - 1)
 	{
-		set_data(list, argv[argc - 1 - i], i);
-		list->next = malloc(sizeof(t_list) * 1);
+		list = malloc(sizeof(t_list) * 1);
+		set_data(list, argv[argc - 1 - i], prev, i);
 		if(i == 0)
 			start = list;
 		prev = list;
-		if(i != argc -2)
-		{
-			list = list->next;
-			list->prev = prev;
-		}
+		list = list->next;
 		i++;
 	}
-	free(list->next);
 	connect_startend(prev, start);
-	return(list->next);
+	return(prev->next);
 }
 
 void	free_list(t_list *list)
@@ -61,7 +61,6 @@ void	free_list(t_list *list)
 		p = t;
 	}
 }
-
 /* 
 int main(void)
 {
