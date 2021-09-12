@@ -9,7 +9,7 @@
             "command": "gcc",
             "args": [
                 "-g",
-                "${fileDirename}/*.c",
+                "${fileDirname}/*.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

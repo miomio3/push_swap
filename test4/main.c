@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/* 
 int	main(int argc, char **argv)
 {
 	t_list	*list;
@@ -9,4 +9,4 @@ int	main(int argc, char **argv)
 	list = make_list(argc, argv);
 	//sort(list);
 	free_list(list);
-}
+} */
