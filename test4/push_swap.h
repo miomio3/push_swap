@@ -60,9 +60,9 @@ typedef struct tree_node
 	int	fixed;
 	int remaining_array1;
 	int	remaining_array2;
-	struct tree_node *right;
-	struct tree_node *center;
 	struct tree_node *left;
+	struct tree_node *center;
+	struct tree_node *right;
 	struct tree_node *prev;
 }tree_node;
 
@@ -86,6 +86,7 @@ int			put_error(void);
 void		ft_putstr(char *s);
 size_t		ft_strlen(char *s);
 int			ft_atoi(const char *str);
+int			select_bigger_num(int num1, int num2);
 //atoi_error
 int			ft_atoi_errorcheck(const char *str);
 int			select_smallerin4(int rr, int rrr, int rrbra, int rrarb);

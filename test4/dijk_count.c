@@ -2,7 +2,10 @@
 
 int	cost(tree_node *tree)
 {
-	return(tree->moves + tree->remaining_array1 + tree->remaining_array2);
+	int	bigger;
+
+	bigger = select_bigger_num(tree->remaining_array1, tree->remaining_array2);
+	return(tree->moves + bigger);
 }
 
 tree_node	*select_min_node(tree_node *right, tree_node *center, tree_node *left)

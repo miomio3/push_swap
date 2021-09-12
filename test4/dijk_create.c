@@ -16,7 +16,6 @@ int	create_double(tree_node **min, int inst, int array1_inst, int array2_inst)
 
 int	create_next(tree_node **min, int inst, int array1_inst, int array2_inst)
 {
-	tree_node	*node;
 	int f;
 
 	if(inst == RR || inst == RRR || inst == SS)
@@ -30,7 +29,7 @@ tree_node	*create_node(tree_node **tree, int inst)
 {
 	tree_node	*node;
 
-	node = malloc(sizeof(tree_node *));
+	node = malloc(sizeof(tree_node));
 	node->moves = (*tree)->moves + 1;
 	node->op = inst;
 	node->right = NULL;

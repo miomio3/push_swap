@@ -17,7 +17,7 @@ tree_node	*search_min(tree_node *tree)//movesの最小値を探索
 	if(tree->fixed == FIXED)
 	{
 		left = search_min(tree->left);
-		center = search_min(tree->right);
+		center = search_min(tree->center);
 		if(tree->right != NULL)
 			right = search_min(tree->right);
 		else
@@ -51,7 +51,7 @@ int	*dijk(int *array1, int *array2)//名前はまだない、ダイクストラ�
 		next_instruction = judge_next(array1[array_size[A] - min->remaining_array1], array2[array_size[B] - min->remaining_array2]);
 		f = create_next(&min, next_instruction, array1[array_size[A] - min->remaining_array1], array2[array_size[B] - min->remaining_array2]);
 	}
-	//array = make_min_array(tree);
+	//array = make_min_array(min);
 	//free_tree();
 	return(array);
 }
