@@ -35,3 +35,22 @@ void	bouble(int	*a, int argc, t_list *list)
 		i++;
 	}
 }
+
+int	*make_int(t_list *list, int argc)
+{
+	int		i;
+	int		*array;
+	t_list	*p;
+
+	array = malloc(sizeof(int) * argc - 1);
+	p = list;
+	i = 0;
+	while(i < argc - 1)
+	{
+		array[i] = p->num;
+		p->arrayorder = i;
+		p = p->next;
+		i++;
+	}
+	return(array);
+}

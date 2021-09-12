@@ -14,7 +14,9 @@ tree_node	*search_min(tree_node *tree)//movesの最小値を探索
 	tree_node	*right;
 	tree_node	*center;
 
-	if(tree->fixed == FIXED)
+	if(tree->op == END)
+		return(NULL);
+	else if(tree->fixed == FIXED)
 	{
 		left = search_min(tree->left);
 		center = search_min(tree->center);
@@ -26,7 +28,6 @@ tree_node	*search_min(tree_node *tree)//movesの最小値を探索
 	}
 	else
 		return(tree);
-	
 }
 
 int	*dijk(int *array1, int *array2)//名前はまだない、ダイクストラ法
@@ -49,16 +50,23 @@ int	*dijk(int *array1, int *array2)//名前はまだない、ダイクストラ�
 			break;
 		min->fixed = FIXED;//minと認定されて初めてFIXEDになる
 		next_instruction = judge_next(array1[array_size[A] - min->remaining_array1], array2[array_size[B] - min->remaining_array2]);
-		f = create_next(&min, next_instruction, array1[array_size[A] - min->remaining_array1], array2[array_size[B] - min->remaining_array2]);
+		f = create_next(min, next_instruction, array1[array_size[A] - min->remaining_array1], array2[array_size[B] - min->remaining_array2]);
+		if(f == ERROR)
+		{
+			//free_tree(tree);
+			return(NULL);
+		}
 	}
-	//array = make_min_array(min);
+	min = search_min(tree);
+	array = make_min_array(min);
 	//free_tree();
 	return(array);
 }
-
+/* 
 int	main(void)
 {
+	int	*re;
 	int	array1[4] = {RA, SA, RRA, END};
 	int	array2[4] = {RB, SB, RB, END};
 	dijk(array1, array2);
-}
+} */

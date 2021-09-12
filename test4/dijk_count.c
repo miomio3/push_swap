@@ -8,19 +8,6 @@ int	cost(tree_node *tree)
 	return(tree->moves + bigger);
 }
 
-tree_node	*select_min_node(tree_node *right, tree_node *center, tree_node *left)
-{
-	tree_node	*min;
-
-	min = left;
-	if(right != NULL)
-		if(cost(right) < cost(left))
-			min = right;
-	if(cost(min) > cost(center))
-		min = center;
-	return(min);
-}
-
 int	count_remaining_array1(tree_node *tree, int inst)
 {
 	if(inst == RR || inst == RRR || inst == SS)
@@ -45,4 +32,13 @@ int	count_remaining_array2(tree_node *tree, int inst)
 		else
 			return(tree->remaining_array2);
 	}
+}
+
+int	is_remaining_array(tree_node *tree)
+{
+	if(tree == NULL)
+		return(EXIST);
+	if(tree->remaining_array1 == 0 && tree->remaining_array2 == 0)
+		return(NOEXIST);
+	return(EXIST);
 }

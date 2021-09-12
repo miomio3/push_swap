@@ -31,6 +31,7 @@
 #define PUT				1
 #define SORTED			1
 #define NOSORTED		0
+#define NOMORE			-1
 #define EXIST			1
 #define NOEXIST			0
 
@@ -76,10 +77,14 @@ tree_node	*select_min_node(tree_node *right, tree_node *center, tree_node *left)
 tree_node	*init_node(int *array1, int *array2);
 tree_node	*search_min(tree_node *tree);
 int			judge_next(int array1, int array2);
-int			create_next(tree_node **min, int inst, int array1_inst, int array2_inst);
-int			create_only2(tree_node **min, int array1_inst, int array2_inst);
-tree_node	*create_node(tree_node **tree, int inst);
-int			create_double(tree_node **min, int inst, int array1_inst, int array2_inst);
+int			create_next(tree_node *min, int inst, int array1_inst, int array2_inst);
+int			create_only2(tree_node *min, int array1_inst, int array2_inst);
+tree_node	*create_node(tree_node *tree, int inst);
+int			create_double(tree_node *min, int inst, int array1_inst, int array2_inst);
+int			is_remaining_array(tree_node *tree);
+int			*make_min_array(tree_node *min);
+void		free_tree(tree_node *tree);
+tree_node	*select_min_in2(tree_node *node1, tree_node *node2);
 
 //libft
 int			put_error(void);
