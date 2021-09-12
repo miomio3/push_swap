@@ -67,10 +67,20 @@ typedef struct tree_node
 }tree_node;
 
 //dijk
+int			cost(tree_node *tree);
 int			count_array(int *array);
+int			count_remaining_array1(tree_node *tree, int inst);
+int			count_remaining_array2(tree_node *tree, int inst);
 int			cost(tree_node *tree);
 tree_node	*select_min_node(tree_node *right, tree_node *center, tree_node *left);
 tree_node	*init_node(int *array1, int *array2);
+tree_node	*search_min(tree_node *tree);
+int			judge_next(int array1, int array2);
+int			create_next(tree_node **min, int inst, int array1_inst, int array2_inst);
+int			create_only2(tree_node **min, int array1_inst, int array2_inst);
+tree_node	*create_node(tree_node **tree, int inst);
+int			create_double(tree_node **min, int inst, int array1_inst, int array2_inst);
+
 //libft
 int			put_error(void);
 void		ft_putstr(char *s);

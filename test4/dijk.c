@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-int	judge_next(int *array1, int *array2)//int * でなく、intでも大丈夫？
+int	judge_next(int array1, int array2)
 {
-	if(array1[0] == array2[0] - 3)
-		return(array1[0] + 6);
+	if(array1 == array2 - 3)
+		return(array1 + 6);
 	else
 		return(CREATE2);
 }
@@ -39,8 +39,8 @@ int	*dijk(int *array1, int *array2)//名前はまだない、ダイクストラ�
 	int			f;
 
 	tree = init_node(array1, array2);
-	array_size[0] = count_array(array1);
-	array_size[1] = count_array(array2);
+	array_size[A] = count_array(array1);
+	array_size[B] = count_array(array2);
 	f = 1;
 	while(f)
 	{
@@ -48,8 +48,8 @@ int	*dijk(int *array1, int *array2)//名前はまだない、ダイクストラ�
 		if(min->remaining_array1 == 0 && min->remaining_array2 == 0)
 			break;
 		min->fixed = FIXED;//minと認定されて初めてFIXEDになる
-		next_instruction = judge_next(&array1[array_size[0] - min->remaining_array1], &array2[array_size[1] - min->remaining_array2]);
-		f = create_next(&min, next_instruction, array1[array_size[0] - min->remaining_array1], array2[array_size[1] - min->remaining_array2]);
+		next_instruction = judge_next(array1[array_size[A] - min->remaining_array1], array2[array_size[B] - min->remaining_array2]);
+		f = create_next(&min, next_instruction, array1[array_size[A] - min->remaining_array1], array2[array_size[B] - min->remaining_array2]);
 	}
 	//array = make_min_array(tree);
 	//free_tree();
