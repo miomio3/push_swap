@@ -12,7 +12,7 @@ int	rra2top_times(t_list *pa)
 
 int	rb2top_times(t_list *pb)
 {
-	return(pb->order - search_Blast(pb)->order);
+	return(pb->order - search_Bfirst(pb)->order);
 }
 
 int	rrb2top_times(t_list *pb)

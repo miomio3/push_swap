@@ -35,3 +35,21 @@ int	ft_atoi_errorcheck(const char *str)
 	}
 	return (NOERROR);
 }
+
+int	arg_error(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	if(argc < 2)
+		return(put_error());
+	i = 1;
+	while(i < argc)
+	{
+		j = 0;
+		if(ft_atoi_errorcheck(argv[i]) == ERROR)
+			return(put_error());
+		i++;
+	}
+	return(NOERROR);
+}

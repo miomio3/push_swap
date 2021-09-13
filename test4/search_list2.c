@@ -46,7 +46,7 @@ t_list	*search_sorted(t_list *list, int a_b)
 	return(p);
 }
 
-t_list	*search_nosorted(t_list *list, int a_b)
+t_list	*search_nosorted_fromlast(t_list *list, int a_b)
 {
 	t_list	*p;
 	t_list	*first;
@@ -55,7 +55,28 @@ t_list	*search_nosorted(t_list *list, int a_b)
 	if(a_b == A)
 		p = search_Alast(list);
 	else
-		p = search_Blast(list);
+		p = search_last(list);
+	first = p;
+	i = 0;
+	while(p != first || i++ == 0)
+	{
+		if(p->sorted == NOSORTED)
+			break;
+		p = search_prev(p, a_b);
+	}
+	return(p);
+}
+
+t_list	*search_nosorted_fromfirst(t_list *list, int a_b)
+{
+	t_list	*p;
+	t_list	*first;
+	int		i;
+
+	if(a_b == A)
+		p = search_list(list, 0);
+	else
+		p = search_Bfirst(list);
 	first = p;
 	i = 0;
 	while(p != first || i++ == 0)
@@ -65,7 +86,6 @@ t_list	*search_nosorted(t_list *list, int a_b)
 		p = search_next(p, a_b);
 	}
 	return(p);
-		
 }
 
 t_list	*search_smallestarray_nosorted(t_list *list, int a_b)

@@ -24,7 +24,7 @@ int	create_next(tree_node *min, int inst, int array1_inst, int array2_inst)
 {
 	int f;
 
-	if(inst == RR || inst == RRR || inst == SS)
+	if(inst == RR || inst == RRR || inst == SS || inst == PP)
 		f = create_double(min, inst, array1_inst, array2_inst);
 	else
 		f = create_only2(min, array1_inst, array2_inst);

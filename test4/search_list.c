@@ -19,7 +19,7 @@ t_list	*search_Alast(t_list	*list)
 	return(p);
 }
 
-t_list	*search_Blast(t_list	*list)
+t_list	*search_Bfirst(t_list	*list)
 {
 	t_list	*p;
 

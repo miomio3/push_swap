@@ -20,12 +20,15 @@
 #define RA				2
 #define RRA				3
 #define SA				4
-#define RB				5
-#define RRB				6
-#define SB				7
-#define RR				8
-#define RRR				9
-#define SS				10
+#define PB				5
+#define RB				6
+#define RRB				7
+#define SB				8
+#define PA				9
+#define RR				10
+#define RRR				11
+#define SS				12
+#define PP				13
 #define CREATE2			11
 #define NOPUT			0
 #define PUT				1
@@ -95,8 +98,10 @@ int			select_bigger_num(int num1, int num2);
 //atoi_error
 int			ft_atoi_errorcheck(const char *str);
 int			select_smallerin4(int rr, int rrr, int rrbra, int rrarb);
+int			arg_error(int argc, char **argv);
 //list
 t_list		*make_list(int argc, char **argv);
+int			smallest_distance2topB(t_list *list);
 //bouble
 void		bouble(int	*a, int argc, t_list *list);
 //inst
@@ -119,15 +124,21 @@ void		sb_rb(t_list *list);
 void		rra_sa(t_list *list);
 void		rrb_sb(t_list *list);
 void		rrr_ss(t_list *list);
-//search
+//inst2top
+void		ra2top(t_list *list);
+//list_count
+int	countA(t_list *list);
+//search_list
 t_list		*search_Alast(t_list	*list);
-t_list		*search_Blast(t_list	*list);
+t_list		*search_Bfirst(t_list	*list);
 t_list		*search_last(t_list *list);
 t_list		*search_first(t_list *list, int a_b);
 t_list		*search_next(t_list *p, int a_b);
 t_list		*search_prev(t_list *p, int a_b);
 t_list		*search_list(t_list *list, int order);
 t_list		*search_arrayorder(t_list *list, int j);
+t_list		*search_nosorted_fromfirst(t_list *list, int a_b);
+t_list		*search_nosorted_fromlast(t_list *list, int a_b);
 //listdata
 void		swap_data(t_list *a, t_list *b);
 void		assign_nextdata(t_list *p);
@@ -137,5 +148,7 @@ void		assign_out2(out2 *out, int instruction, t_list *a, t_list *b);
 int			is_sorted(t_list *list);
 int			is_sortedAB(t_list *p, int a_b);
 int			is_B(t_list *list);
+//quick
+void		quick(t_list *list);
 
 #endif

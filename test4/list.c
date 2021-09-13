@@ -61,6 +61,18 @@ void	free_list(t_list *list)
 		p = t;
 	}
 }
+
+int	smallest_distance2topB(t_list *list)
+{
+	int	distance0;
+	int	distancelast;
+	distance0 = list->order - search_Bfirst(list)->order;
+	distancelast = list->order + 1;
+	if(distance0 < distancelast)
+		return(distance0);
+	else
+		return(distancelast);
+}
 /* 
 int main(void)
 {

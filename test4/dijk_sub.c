@@ -59,3 +59,12 @@ tree_node	*select_min_in2(tree_node *node1, tree_node *node2)
 		return(node1);
 	}
 }
+
+int	is_remaining_array(tree_node *tree)
+{
+	if(tree == NULL)
+		return(EXIST);
+	if(tree->remaining_array1 == 0 && tree->remaining_array2 == 0)
+		return(NOEXIST);
+	return(EXIST);
+}

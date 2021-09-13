@@ -2,8 +2,8 @@
 
 int	judge_next(int array1, int array2)
 {
-	if(array1 == array2 - 3)
-		return(array1 + 6);
+	if(array1 == array2 - 4)
+		return(array1 + 8);
 	else
 		return(CREATE2);
 }
