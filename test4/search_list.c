@@ -6,7 +6,7 @@ t_list	*search_last(t_list *list)
 }
 
 
-t_list	*search_Alast(t_list	*list)
+t_list	*searchA_last(t_list	*list)
 {
 	t_list	*p;
 	int		i;
@@ -19,7 +19,7 @@ t_list	*search_Alast(t_list	*list)
 	return(p);
 }
 
-t_list	*search_Bfirst(t_list	*list)
+t_list	*searchB_first(t_list	*list)
 {
 	t_list	*p;
 

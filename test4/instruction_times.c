@@ -2,7 +2,7 @@
 
 int	ra2top_times(t_list *pa)
 {
-	return(search_Alast(pa)->order - pa->order);
+	return(searchA_last(pa)->order - pa->order);
 }
 
 int	rra2top_times(t_list *pa)
@@ -12,7 +12,7 @@ int	rra2top_times(t_list *pa)
 
 int	rb2top_times(t_list *pb)
 {
-	return(pb->order - search_Bfirst(pb)->order);
+	return(pb->order - searchB_first(pb)->order);
 }
 
 int	rrb2top_times(t_list *pb)

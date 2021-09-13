@@ -8,6 +8,7 @@ static void	set_data(t_list *list, const char *argv, t_list *prev, const int i)
 	list->last = 0;
 	list->a_b = 0;
 	list->sorted = 0;
+	list->enst = NOTHING;
 	if(prev != NULL)
 	{
 			list->prev = prev;
@@ -36,7 +37,12 @@ t_list	*make_list(int argc, char *argv[])
 		list = malloc(sizeof(t_list) * 1);
 		set_data(list, argv[argc - 1 - i], prev, i);
 		if(i == 0)
+		{
 			start = list;
+			list->enst = START;
+		}
+		else if(i == argc - 2)
+			list->enst = END;
 		prev = list;
 		list = list->next;
 		i++;
@@ -66,7 +72,7 @@ int	smallest_distance2topB(t_list *list)
 {
 	int	distance0;
 	int	distancelast;
-	distance0 = list->order - search_Bfirst(list)->order;
+	distance0 = list->order - searchB_first(list)->order;
 	distancelast = list->order + 1;
 	if(distance0 < distancelast)
 		return(distance0);

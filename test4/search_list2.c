@@ -32,9 +32,9 @@ t_list	*search_sorted(t_list *list, int a_b)
 	int		i;
 
 	if(a_b == A)
-		p = search_Alast(list);
+		p = searchA_last(list);
 	else
-		p = search_Blast(list);
+		p = searchB_first(list);
 	first = p;
 	i = 0;
 	while(p != first || i++ == 0)
@@ -53,7 +53,7 @@ t_list	*search_nosorted_fromlast(t_list *list, int a_b)
 	int		i;
 
 	if(a_b == A)
-		p = search_Alast(list);
+		p = searchA_last(list);
 	else
 		p = search_last(list);
 	first = p;
@@ -76,7 +76,7 @@ t_list	*search_nosorted_fromfirst(t_list *list, int a_b)
 	if(a_b == A)
 		p = search_list(list, 0);
 	else
-		p = search_Bfirst(list);
+		p = searchB_first(list);
 	first = p;
 	i = 0;
 	while(p != first || i++ == 0)
@@ -95,7 +95,7 @@ t_list	*search_smallestarray_nosorted(t_list *list, int a_b)
 	t_list	*first;
 	int		i;
 
-	p = search_nosorted(list, a_b);
+	p = search_nosorted_fromlast(list, a_b);
 	re = p;
 	first = p;
 	i = 0;

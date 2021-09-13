@@ -1,5 +1,11 @@
 #include "push_swap.h"
 
+int	put_error(void)
+{
+	ft_putstr("Error\n");
+	return(ERROR);
+}
+
 static int	ft_isspace(char c)
 {
 	if (c == ' ' || c == '\f' || c == '\n' || \

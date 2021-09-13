@@ -1,19 +1,33 @@
 #include "push_swap.h"
 
-void	ra2top(t_list *list)
+int	*ra2top(t_list *list, int put)
 {
 	int	i;
+	int	*array;
 
-	i = search_Alast(list)->order - list->order;
+	i = ra2top_times(list);
+	array = malloc(sizeof(int) * i + 2);
+	array[i] = END;
 	while(i--)
-		ra(list, NOPUT);
+	{
+		ra(list, put);
+		array[i] = RA;
+	}
+	return(array);
 }
 
-void	rra2top(t_list *list)
+int	*rra2top(t_list *list, int put)
 {
 	int	i;
+	int	*array;
 
-	i = list->order;
+	i = rra2top_times(list);
+	array = malloc(sizeof(int) * i + 2);
+	array[i] = END;
 	while(i--)
-		rra(list, NOPUT);
+	{
+		rra(list, put);
+		array[i] = RRA;
+	}
+	return(array);
 }

@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+int	is_over5_inA(t_list *list)
+{
+	if(searchA_last(list)->sorted == SORTED)
+		return(OVER);
+	if(searchA_last(list)->order - searchA_start(list)->order > 5)
+		return(OVER);
+	else
+		return(UNDER);
+}
+
 void	quick(t_list *list)
 {
 	int	*instA;
@@ -7,9 +17,9 @@ void	quick(t_list *list)
 
 	while(is_sorted(list) == NOSORTED)
 	{
-		instA = inst_push2b(list);
-		if(is_B == EXIST)
-			instB = inst_quick2a(list);
-		do_inst(instA, instB);
+		while(is_over5_inA(list) == OVER)
+			push2b_overcenter(list);
+		//sort_both(list);
+		//push2a(list);
 	}
 }

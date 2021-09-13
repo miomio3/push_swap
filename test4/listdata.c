@@ -16,23 +16,28 @@ void	swap_data(t_list *a, t_list *b)
 	tmp = a->arrayorder;
 	a->arrayorder = b->arrayorder;
 	b->arrayorder = tmp;
+	tmp = a->enst;
+	a->enst = b->enst;
+	b->enst = tmp;
 }
 
 void	assign_nextdata(t_list *p)
 {
-	p->num = p->next->num;
-	p->sorted = p->next->sorted;
-	p->arrayorder = p->next->arrayorder;
+	p->num = search_next(p, p->a_b)->num;
+	p->sorted = search_next(p, p->a_b)->sorted;
+	p->arrayorder = search_next(p, p->a_b)->arrayorder;
+	p->enst = search_next(p, p->a_b)->enst;
 }
 
 void	assign_prevdata(t_list *p)
 {
-	p->num = p->prev->num;
-	p->sorted = p->prev->sorted;
-	p->arrayorder = p->prev->arrayorder;
+	p->num = search_prev(p, p->a_b)->num;
+	p->sorted = search_prev(p, p->a_b)->sorted;
+	p->arrayorder = search_prev(p, p->a_b)->arrayorder;
+	p->enst = search_prev(p, p->a_b)->enst;
 }
 
-void	assign_data(t_list *p, int num, int sorted, int arrayorder)
+void	assign_data(t_list *p, int num, int sorted, int arrayorder, int enst)
 {
 	p->num = num;
 	p->sorted = sorted;
@@ -44,4 +49,5 @@ void	assign_out2(out2 *out, int instruction, t_list *a, t_list *b)
 	out->instruction = instruction;
 	out->pa = a;
 	out->pb = b;
+
 }

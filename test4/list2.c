@@ -1,0 +1,88 @@
+#include "push_swap.h"
+
+int	ft_intstrlen(int *a)
+{
+	int	i;
+
+	i = 0;
+	while(a[i] != END)
+		i++;
+	return(i);
+}
+
+void	ft_intstrcpy(int *a, int *b)
+{
+	int	i;
+
+	i = 0;
+	while(b[i] != END)
+	{
+		a[i] = b[i];
+		i++;
+	}
+}
+
+int	is_B(t_list *list)
+{
+	t_list	*p;
+
+	p = list;
+	while(p->a_b == A && p->last == 0)
+		p = p->next;
+	if(p->a_b == B)
+		return(EXIST);
+	else
+		return(NOEXIST);
+}
+
+
+int	is_sorted(t_list *list)
+{
+	t_list	*p;
+
+	p = search_list(list, 0);
+	while(p->num >= p->next->num && p->last == 0)
+		p = p->next;
+	if(p->last == 1)
+		return(SORTED);
+	else
+		return(NOSORTED);
+}
+
+int	*ft_intstrjoin(int *a, int *b)
+{
+	int	i;
+	int	j;
+	int	lenA;
+	int	lenB;
+	int	*re;
+
+	if(a == NULL)
+		return(b);
+	else if(b == NULL)
+		return(a);
+	lenA = ft_intstrlen(a);
+	lenB = ft_intstrlen(b);
+	re = malloc(sizeof(int) * (lenA + lenB - 1));
+	ft_intstrcpy(re, b);
+	ft_intstrcpy(&re[lenA - 1], b);
+	re[lenA + lenB - 2] = END;
+	return(re);
+}
+
+/* 
+int	is_sortedAB(t_list *p, int a_b)
+{
+	t_list	*first;
+	t_list	*ptr;
+	int		i;
+
+	first = search_smallestlast(p, a_b);
+	ptr = first;
+	while(ptr->num <= search_prev(ptr, a_b)->num && search_prev(ptr, a_b) != first)
+		ptr = search_prev(ptr, a_b);
+	if(search_prev(ptr, a_b) == first)
+		return(SORTED);
+	return(NOSORTED);
+}
+ */

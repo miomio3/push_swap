@@ -6,13 +6,13 @@ void	ra(t_list *list, int put)
 	int		i;
 	t_list	last;
 
-	p = search_Alast(list);
+	p = searchA_last(list);
 	i = p->order;
 	last = *p;
 	while(i >= 0)
 	{
 		if(i == 0)
-			assign_data(p, last.num, last.sorted, last.arrayorder);
+			assign_data(p, last.num, last.sorted, last.arrayorder, last.enst);
 		else
 			assign_prevdata(p);
 		p = p->prev;
@@ -29,14 +29,14 @@ void	rra(t_list *list, int put)
 	int		Alast;
 	t_list	first;
 
-	Alast = search_Alast(list)->order;
+	Alast = searchA_last(list)->order;
 	p = search_list(list, 0);
 	first = *p;
 	i = 0;
 	while(i <= Alast)
 	{
 		if(i == Alast)
-			assign_data(p, first.num, first.sorted, first.arrayorder);
+			assign_data(p, first.num, first.sorted, first.arrayorder, first.enst);
 		else
 			assign_nextdata(p);
 		p = p->next;
@@ -54,13 +54,13 @@ void	rb(t_list *list, int put)
 	int		i;
 
 	last = search_list(list, 0)->prev;
-	p = search_Blast(list);
+	p = searchB_first(list);
 	first = *p;
 	i = p->order;
 	while(i <= last->order)
 	{
 		if(i == last->order)
-			assign_data(p, first.num, first.sorted, first.arrayorder);
+			assign_data(p, first.num, first.sorted, first.arrayorder, first.enst);
 		else
 			assign_nextdata(p);
 		p = p->next;
@@ -74,8 +74,21 @@ void	pb(t_list *list)
 {
 	t_list	*p;
 
-	p = search_Alast(list);
-	p->a_b = B;
+	p = searchA_last(list);
+	if(p->enst == START)
+	{
+		search_next(p, A)->enst = START;
+		p->enst = NOTHING;
+		rra(p, PUT);
+	}
+	else if(p->enst == END)
+	{
+		search_prev(p, A)->enst = END;
+		p->enst = NOTHING;//pのenstをいじりたい場合はpbした後
+		p->a_b = B;
+	}
+	else
+		p->a_b = B;
 	ft_putstr("pb\n");
 }
 
@@ -83,7 +96,21 @@ void	pa(t_list *list)
 {
 	t_list	*p;
 
-	p = search_Blast(list);
-	p->a_b = A;
+	p = searchB_first(list);
+	if(p->enst == START)
+	{
+		search_prev(p, B)->enst = START;
+		p->enst = NOTHING;
+		p->a_b = A;
+		rrb(list, PUT);
+	}
+	else if(p->enst == END)
+	{
+		search_next(p, B)->enst = END;
+		p->enst = NOTHING;
+		p->a_b = A;
+	}
+	else
+		p->a_b = A;
 	ft_putstr("pa\n");
 }
