@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-
 t_list *searchB_biggercenter(t_list *list, int center)
 {
 	t_list	*p;
@@ -14,7 +13,6 @@ t_list *searchB_biggercenter(t_list *list, int center)
 		p = search_next(p, B);
 	return(p);
 }
-
 
 void	push2a_biggercenter(t_list *list)
 {
@@ -32,4 +30,13 @@ void	push2a_biggercenter(t_list *list)
 		pa(list, PUT);
 		p = searchB_biggercenter(list, center);
 	}
+}
+
+void	push2a_ra(t_list *list)
+{
+	while(is_B(list) == EXIST)
+		pa(list, PUT);
+	if(is_sorted(list) == NOSORTED)
+		while(searchA_last(list)->enst == END)
+			ra(list, PUT);
 }

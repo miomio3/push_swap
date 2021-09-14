@@ -39,29 +39,6 @@ int	comp12B(t_list *list)
 		return(SORTED);
 }
 
-int	*create2re(int inst1, int inst2)
-{
-	int	*re;
-	int	i;
-
-	i = 0;
-	if(inst1 == END)
-		re = malloc(sizeof(int) * 1);
-	else if(inst2 == END)
-	{
-		re = malloc(sizeof(int) * 2);
-		re[i++] = inst1;
-	}
-	else
-	{
-		re = malloc(sizeof(int) * 3);
-		re[i++] = inst1;
-		re[i++] = inst2;
-	}
-	re[i] = END;
-	return(re);
-}
-
 int	*sort3B(t_list *list)
 {
 	int	comp01;

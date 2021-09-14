@@ -20,5 +20,10 @@ int	*sortB(t_list *list)
 		re = sort2B(list);
 	else if(count == 3)
 		re = sort3B(list);
+	else
+	{
+		re = malloc(sizeof(int));
+		re[0] = END;
+	}
 	return(re);
 }

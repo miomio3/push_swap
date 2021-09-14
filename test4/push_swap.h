@@ -113,6 +113,7 @@ int			put_error(void);
 t_list		*make_list(int argc, char **argv);
 int			smallest_distance2topB(t_list *list);
 int			enstAlen(t_list *list);
+void		free_list(t_list *list);
 //bouble
 void		bouble(int	*a, int argc, t_list *list);
 //inst
@@ -182,6 +183,7 @@ void		do_inst_noput(t_list *list,int inst);
 //push2a
 void		push2a_biggercenter(t_list *list);
 //push2b
+void		push2a_ra(t_list *list);
 void		push2b_undercenter(t_list *list);
 //quick
 void		quick(t_list *list);
@@ -189,6 +191,7 @@ int			is_over5_inA(t_list *list);
 //sort
 int			*make_int(t_list *list, int argc);
 void		sort_both(t_list *list);
+int			*create2re(int inst1, int inst2);
 //sortB
 int			*sort3B(t_list *list);
 int			*sort2B(t_list *list);
@@ -196,6 +199,9 @@ int			*sortB(t_list *list);
 //sortA
 int			*sortA(t_list *list);
 int			*sort2A(t_list *list);
+//sortA_first
+int			*sort3A(t_list *list);
+int			*sortA_first(t_list *list);
 //searchA_arrayorder
 t_list		*searchA_smallest_arrayorder(t_list *list);
 t_list		*searchA_biggest_arrayorder(t_list *list);

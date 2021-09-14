@@ -73,8 +73,10 @@ void	rb(t_list *list, int put)
 void	pb(t_list *list, int put)
 {
 	t_list	*p;
+	t_list	*prev;
 
 	p = searchA_last(list);
+	prev = search_prev(p, A);
 	if(p->enst == START)
 	{
 		search_next(p, A)->enst = START;
@@ -83,7 +85,8 @@ void	pb(t_list *list, int put)
 	}
 	else if(p->enst == END)
 	{
-		search_prev(p, A)->enst = END;
+		if(prev->enst != START)
+			prev->enst = END;
 		p->enst = NOTHING;//pのenstをいじりたい場合はpbした後
 		p->a_b = B;
 	}

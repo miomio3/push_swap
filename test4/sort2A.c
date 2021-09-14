@@ -14,6 +14,9 @@ int	*sort2A(t_list *list)
 		do_inst_noput(list, SA);
 	}
 	else
-		re = NULL;
+	{
+		re = malloc(sizeof(int));
+		re[0] = END;
+	}
 	return(re);
 }

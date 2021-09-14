@@ -1,5 +1,11 @@
 NAME = push_swap
-SRC = atoi_error.c bouble.c instruction.c instruction_times.c libft.c libft2.c list.c listdata.c main.c list_count.c  search_list.c search_list2.c search_nextprev.c sort.c
+
+SRC = atoi_error.c bouble.c instruction.c instruction2.c instruction3.c\
+		instruction2top_times.c instruction2top.c is.c\
+		libft.c libft2.c libft3.c list.c list2.c list3.c listdata.c list_count.c main.c\
+		push2a.c push2b.c put_do_inst.c quick.c search_enst.c search_list.c search_list2.c search_nextprev.c\
+		searchA_arrayorder.c searchB_arrayorder.c sort.c sort2A.c sortA.c sort2B.c sort3B.c sortB.c sortA_first.c
+
 CC = gcc
 
 all		:$(NAME)
