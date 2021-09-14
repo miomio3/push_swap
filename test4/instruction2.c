@@ -14,7 +14,7 @@ void	rrb(t_list *list, int put)
 	while(i >= first->order)
 	{
 		if(i == first->order)
-			assign_data(p, last.num, last.sorted, last.arrayorder, last.enst);
+			assign_data(p, last);
 		else
 			assign_prevdata(p);
 		p = p->prev;
@@ -24,18 +24,20 @@ void	rrb(t_list *list, int put)
 		ft_putstr("rrb\n");
 }
 
-void	rrr(t_list *list)
+void	rrr(t_list *list, int put)
 {
-	rra(list, NOPUT);
-	rrb(list, NOPUT);
-	ft_putstr("rrr\n");
+	rra(list, put);
+	rrb(list, put);
+	if(put == PUT)
+		ft_putstr("rrr\n");
 }
 
-void	rr(t_list *list)
+void	rr(t_list *list, int put)
 {
-	ra(list, NOPUT);
-	rb(list, NOPUT);
-	ft_putstr("rr\n");
+	ra(list, put);
+	rb(list, put);
+	if(put == PUT)
+		ft_putstr("rr\n");
 }
 
 void	sa(t_list *list, int put)

@@ -47,3 +47,25 @@ void	put_inst(int *instA, int *instB)
 	put_inst1(instA);
 	put_inst1(instB);
 }
+
+void	do_inst_noput(t_list *list,int inst)
+{
+	if(inst == RA)
+		ra(list, NOPUT);
+	else if(inst == RRA)
+		rra(list, NOPUT);
+	else if(inst ==RB)
+		rb(list, NOPUT);
+	else if(inst == RRB)
+		rrb(list, NOPUT);
+	else if(inst == RR)
+		rr(list, NOPUT);
+	else if(inst == RRR)
+		rrr(list, NOPUT);
+	else if(inst == SA)
+		sa(list, NOPUT);
+	else if(inst == SB)
+		sb(list, NOPUT);
+	else if(inst == SS)
+		ss(list, NOPUT);
+}

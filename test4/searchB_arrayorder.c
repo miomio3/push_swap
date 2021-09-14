@@ -5,10 +5,14 @@ t_list	*searchB_smallest_arrayorder(t_list *list)
 {
 	t_list	*p;
 	t_list	*re;
+	t_list	*first;
+	int		i;
 
-	p = searchB_end(list);
+	p = searchB_first(list);
+	first = p;
 	re = p;
-	while(p->enst != START)
+	i = 0;
+	while(p != first || i++ == 0)
 	{
 		if(re->arrayorder > p->arrayorder)
 			re = p;
@@ -21,10 +25,14 @@ t_list	*searchB_biggest_arrayorder(t_list *list)
 {
 	t_list	*p;
 	t_list	*re;
+	t_list	*first;
+	int		i;
 
-	p = searchB_end(list);
+	p = searchB_first(list);
 	re = p;
-	while(p->enst != START)
+	first = p;
+	i = 0;
+	while(p != first || i++ == 0)
 	{
 		if(re->arrayorder < p->arrayorder)
 			re = p;
@@ -41,6 +49,6 @@ int	centerB_arrayorder(t_list *list)
 
 	biggest = searchB_biggest_arrayorder(list);
 	smallest = searchB_smallest_arrayorder(list);
-	center = (biggest->arrayorder - smallest->arrayorder) / 2;
+	center = (biggest->arrayorder - smallest->arrayorder + 1) / 2;
 	return(center);
 }

@@ -101,6 +101,9 @@ size_t		ft_strlen(char *s);
 int			ft_atoi(const char *str);
 int			select_bigger_num(int num1, int num2);
 int			*ft_intstrjoin(int *a, int *b);
+void		safe_free(int *array);
+void		ft_intstrcpy(int *a, int *b);
+int			ft_intstrlen(int *a);
 //atoi_error
 int			ft_atoi_errorcheck(const char *str);
 int			select_smallerin4(int rr, int rrr, int rrbra, int rrarb);
@@ -109,24 +112,21 @@ int			put_error(void);
 //list
 t_list		*make_list(int argc, char **argv);
 int			smallest_distance2topB(t_list *list);
+int			enstAlen(t_list *list);
 //bouble
 void		bouble(int	*a, int argc, t_list *list);
 //inst
-int			ra2top_times(t_list *pa);
-int			rra2top_times(t_list *pa);
-int			rb2top_times(t_list *pb);
-int			rrb2top_times(t_list *pb);
 void		ra(t_list *list, int put);
 void		rb(t_list *list, int put);
-void		rr(t_list *list);
+void		rr(t_list *list, int put);
 void		rra(t_list *list, int put);
 void		rrb(t_list *list, int put);
-void		rrr(t_list *list);
+void		rrr(t_list *list, int put);
 void		sa(t_list *list, int put);
 void		sb(t_list *list, int put);
-void		ss(t_list *list);
-void		pb(t_list *list);
-void		pa(t_list *list);
+void		ss(t_list *list, int put);
+void		pb(t_list *list, int put);
+void		pa(t_list *list, int put);
 void		ss_rr(t_list *list);
 void		sa_ra(t_list *list);
 void		sb_rb(t_list *list);
@@ -134,18 +134,28 @@ void		rra_sa(t_list *list);
 void		rrb_sb(t_list *list);
 void		rrr_ss(t_list *list);
 //inst2top
-int		*ra2top(t_list *list, int put);
-int		*rra2top(t_list *list, int put);
+int			*ra2top(t_list *list, int put);
+int			*rra2top(t_list *list, int put);
+int			*rb2top(t_list	*list, int put);
+int			*rrb2top(t_list *list, int put);
+int			ra2top_times(t_list *pa);
+int			rra2top_times(t_list *pa);
+int			rb2top_times(t_list *pb);
+int			rrb2top_times(t_list *pb);
+//is
+int			isA_over3(t_list *list);
+int			isB_over3(t_list *list);
+int			isA_sorted_enst(t_list *list);
 //list_count
-int	countA(t_list *list);
+int			countA(t_list *list);
 //search_arrayorder
-int	centerA_arrayorder(t_list *list);
-int	centerB_arrayorder(t_list *list);
+int			centerA_arrayorder(t_list *list);
+int			centerB_arrayorder(t_list *list);
 //search_enst
-t_list	*searchA_start(t_list *list);
-t_list	*searchA_end(t_list *list);
-t_list	*searchB_start(t_list *list);
-t_list	*searchB_end(t_list *list);
+t_list		*searchA_start(t_list *list);
+t_list		*searchA_end(t_list *list);
+t_list		*searchB_start(t_list *list);
+t_list		*searchB_end(t_list *list);
 //search_list
 t_list		*searchA_last(t_list	*list);
 t_list		*searchB_first(t_list	*list);
@@ -161,23 +171,31 @@ t_list		*search_nosorted_fromlast(t_list *list, int a_b);
 void		swap_data(t_list *a, t_list *b);
 void		assign_nextdata(t_list *p);
 void		assign_prevdata(t_list *p);
-void		assign_data(t_list *p, int num, int sorted, int arrayorder, int enst);
+void		assign_data(t_list *p, t_list data);
 void		assign_out2(out2 *out, int instruction, t_list *a, t_list *b);
 int			is_sorted(t_list *list);
 int			is_sortedAB(t_list *p, int a_b);
 int			is_B(t_list *list);
-//putinst
+//put_do_inst
 void		put_inst(int *instA, int *instB);
+void		do_inst_noput(t_list *list,int inst);
+//push2a
+void		push2a_biggercenter(t_list *list);
 //push2b
-void		push2b_overcenter(t_list *list);
+void		push2b_undercenter(t_list *list);
 //quick
 void		quick(t_list *list);
 int			is_over5_inA(t_list *list);
 //sort
 int			*make_int(t_list *list, int argc);
+void		sort_both(t_list *list);
+//sortB
+int			*sort3B(t_list *list);
+int			*sort2B(t_list *list);
+int			*sortB(t_list *list);
 //sortA
-int			isA_sorted_enst(t_list *list);
 int			*sortA(t_list *list);
+int			*sort2A(t_list *list);
 //searchA_arrayorder
 t_list		*searchA_smallest_arrayorder(t_list *list);
 t_list		*searchA_biggest_arrayorder(t_list *list);

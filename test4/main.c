@@ -7,7 +7,7 @@ int	main()//int argc, char **argv)
 	int		*array;
 	int		center;
 	int		argc;
-	char	*argv[5] = {"","1", "3","4","5"};
+	char	*argv[5] = {"","0", "9","1","5"};
 	t_list	*debug;
 	int		intdebug;
 
@@ -17,7 +17,8 @@ int	main()//int argc, char **argv)
 	list = make_list(argc, argv);
 	array = make_int(list, argc);
 	bouble(array, argc, list);
-	intdebug = isA_sorted_enst(list);
-	//quick(list);
+	push2b_undercenter(list);
+	sortB(list);
+	quick(list);
 	//free_list(list);
 }

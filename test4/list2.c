@@ -1,27 +1,5 @@
 #include "push_swap.h"
 
-int	ft_intstrlen(int *a)
-{
-	int	i;
-
-	i = 0;
-	while(a[i] != END)
-		i++;
-	return(i);
-}
-
-void	ft_intstrcpy(int *a, int *b)
-{
-	int	i;
-
-	i = 0;
-	while(b[i] != END)
-	{
-		a[i] = b[i];
-		i++;
-	}
-}
-
 int	is_B(t_list *list)
 {
 	t_list	*p;
@@ -47,27 +25,6 @@ int	is_sorted(t_list *list)
 		return(SORTED);
 	else
 		return(NOSORTED);
-}
-
-int	*ft_intstrjoin(int *a, int *b)
-{
-	int	i;
-	int	j;
-	int	lenA;
-	int	lenB;
-	int	*re;
-
-	if(a == NULL)
-		return(b);
-	else if(b == NULL)
-		return(a);
-	lenA = ft_intstrlen(a);
-	lenB = ft_intstrlen(b);
-	re = malloc(sizeof(int) * (lenA + lenB - 1));
-	ft_intstrcpy(re, b);
-	ft_intstrcpy(&re[lenA - 1], b);
-	re[lenA + lenB - 2] = END;
-	return(re);
 }
 
 /* 

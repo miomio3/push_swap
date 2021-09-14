@@ -12,7 +12,7 @@ void	ra(t_list *list, int put)
 	while(i >= 0)
 	{
 		if(i == 0)
-			assign_data(p, last.num, last.sorted, last.arrayorder, last.enst);
+			assign_data(p, last);
 		else
 			assign_prevdata(p);
 		p = p->prev;
@@ -36,7 +36,7 @@ void	rra(t_list *list, int put)
 	while(i <= Alast)
 	{
 		if(i == Alast)
-			assign_data(p, first.num, first.sorted, first.arrayorder, first.enst);
+			assign_data(p, first);
 		else
 			assign_nextdata(p);
 		p = p->next;
@@ -60,7 +60,7 @@ void	rb(t_list *list, int put)
 	while(i <= last->order)
 	{
 		if(i == last->order)
-			assign_data(p, first.num, first.sorted, first.arrayorder, first.enst);
+			assign_data(p, first);
 		else
 			assign_nextdata(p);
 		p = p->next;
@@ -70,7 +70,7 @@ void	rb(t_list *list, int put)
 		ft_putstr("rb\n");
 }
 
-void	pb(t_list *list)
+void	pb(t_list *list, int put)
 {
 	t_list	*p;
 
@@ -89,10 +89,11 @@ void	pb(t_list *list)
 	}
 	else
 		p->a_b = B;
-	ft_putstr("pb\n");
+	if(put == PUT)
+		ft_putstr("pb\n");
 }
 
-void	pa(t_list *list)
+void	pa(t_list *list, int put)
 {
 	t_list	*p;
 
@@ -112,5 +113,6 @@ void	pa(t_list *list)
 	}
 	else
 		p->a_b = A;
-	ft_putstr("pa\n");
+	if(put == PUT)
+		ft_putstr("pa\n");
 }
