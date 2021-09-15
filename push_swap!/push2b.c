@@ -25,7 +25,7 @@ t_list *searchA_undercenter(t_list *list, int center)
 	return(p);
 }
 
-void	push2b_undercenter(t_list *list)
+void	push2b_undercenter(t_list *list, int times)
 {
 	t_list	*p;
 	int		*array;
@@ -47,7 +47,7 @@ void	push2b_undercenter(t_list *list)
 		free(array);
 		is = is_sorted(list);
 	}
-	if(isA_sorted(list) == NOSORTED)
+	if(isA_sorted(list) == NOSORTED && times != 0)
 		while(i--)
 			rra(list, PUT);
 }

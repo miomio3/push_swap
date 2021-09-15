@@ -6,11 +6,11 @@ int	main(int argc, char **argv)
 	int		*array;
 	int		center;
 	/* int		argc;
-	char	*argv[8] = {"", "4","3", "1", "2", "0"};
+	char	*argv[8] = {"", "1","2", "4", "0", "3", "5"};
 	t_list	*debug;
 	int		intdebug;
 
-	argc = 6; */
+	argc = 7; */
 	if(arg_error(argc, argv) == ERROR)
 		return(ERROR);
 	list = make_list(argc, argv);
@@ -21,4 +21,4 @@ int	main(int argc, char **argv)
 	return(0);
 }
 
-//-452855385 -537315133 -788512405 -623367599 -1552496856
+//-1704381943 -1361918211 182008694 -1954153013 -360864187 1576203921

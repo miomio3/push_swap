@@ -186,7 +186,7 @@ void		do_inst_noput(t_list *list,int inst);
 void		push2a_biggercenter(t_list *list);
 //push2b
 void		push2a_ra(t_list *list);
-void		push2b_undercenter(t_list *list);
+void		push2b_undercenter(t_list *list, int times);
 //quick
 void		quick(t_list *list);
 int			is_over5_inA(t_list *list);
